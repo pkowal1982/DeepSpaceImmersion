@@ -1,0 +1,106 @@
+[gd_scene load_steps=12 format=3 uid="uid://rq1h0g5qbr6l"]
+
+[ext_resource type="Script" path="res://script/Asteroids.gd" id="1_03dgl"]
+[ext_resource type="Script" path="res://script/DeepSpace.gd" id="1_bifnf"]
+[ext_resource type="Script" path="res://script/Rockets.gd" id="2_jyroo"]
+[ext_resource type="Script" path="res://script/Junks.gd" id="4_8eyy1"]
+[ext_resource type="Script" path="res://script/Satellites.gd" id="4_cyvbx"]
+[ext_resource type="Script" path="res://script/Blobs.gd" id="5_x53wr"]
+[ext_resource type="Script" path="res://script/Time.gd" id="6_jqp7u"]
+[ext_resource type="Script" path="res://script/Score.gd" id="7_l3c1m"]
+[ext_resource type="Script" path="res://script/RayCast.gd" id="8_esgxk"]
+[ext_resource type="Script" path="res://script/CameraParent.gd" id="9_5plvo"]
+[ext_resource type="Environment" uid="uid://b6wof5w5v1g41" path="res://environment.tres" id="10_spi47"]
+
+[node name="DeepSpace" type="Node3D"]
+script = ExtResource( "1_bifnf" )
+
+[node name="Asteroids" type="Node3D" parent="."]
+script = ExtResource( "1_03dgl" )
+
+[node name="Rockets" type="Node3D" parent="."]
+script = ExtResource( "2_jyroo" )
+
+[node name="Satellites" type="Node3D" parent="."]
+script = ExtResource( "4_cyvbx" )
+
+[node name="Junks" type="Node3D" parent="."]
+script = ExtResource( "4_8eyy1" )
+
+[node name="Blobs" type="Node3D" parent="."]
+script = ExtResource( "5_x53wr" )
+
+[node name="Time" type="Label" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -23.0
+offset_right = 40.0
+offset_bottom = -16.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Time"
+structured_text_bidi_override_options = []
+script = ExtResource( "6_jqp7u" )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="Label" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Score
+"
+structured_text_bidi_override_options = []
+script = ExtResource( "7_l3c1m" )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameOver" type="Label" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.0
+offset_top = -24.0
+offset_right = 43.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Game Over
+"
+align = 1
+structured_text_bidi_override_options = []
+script = null
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RayCast" type="RayCast3D" parent="."]
+script = ExtResource( "8_esgxk" )
+
+[node name="Light" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.394939, -0.778152, 0.488368, 0.388772, 0.623197, 0.678588, -0.832394, -0.078137, 0.548648, 4.41875, 1.78947, 0)
+shadow_enabled = true
+script = null
+
+[node name="CameraParent" type="Node3D" parent="."]
+script = ExtResource( "9_5plvo" )
+
+[node name="Camera" type="Camera3D" parent="CameraParent"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+environment = ExtResource( "10_spi47" )
+far = 40.0
+script = null

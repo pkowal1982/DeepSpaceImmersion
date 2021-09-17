@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://bko80373a7co"]
+
+[ext_resource type="Script" path="res://script/ShieldStatus.gd" id="1_65yn4"]
+[ext_resource type="Texture2D" uid="uid://ddhcl0oeqqayx" path="res://image/Shield.png" id="2_s53my"]
+[ext_resource type="Texture2D" uid="uid://jwxcjpomi76l" path="res://image/Repair.png" id="3_4oa1p"]
+
+[node name="ShieldStatus" type="Node2D"]
+script = ExtResource( "1_65yn4" )
+
+[node name="Shield" type="TextureProgressBar" parent="."]
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+mouse_filter = 2
+max_value = 1.0
+step = 0.0
+texture_progress = ExtResource( "2_s53my" )
+fill_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RepairTime" type="TextureProgressBar" parent="."]
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+mouse_filter = 2
+max_value = 1.0
+step = 0.0
+texture_progress = ExtResource( "3_4oa1p" )
+fill_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}

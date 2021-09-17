@@ -1,0 +1,30 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Deep Space Immersion"
+run/main_scene="res://scene/DeepSpaceImmersion.tscn"
+config/icon="res://icon.png"
+config/windows_native_icon="res://icon.ico"
+config/features=PackedStringArray("4.0")
+
+[autoload]
+
+Global="*res://script/Global.gd"
+
+[display]
+
+window/size/width=1280
+window/size/height=720
+
+[physics]
+
+3d/default_gravity=0.0

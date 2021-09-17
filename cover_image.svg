@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="630"
+   height="500"
+   viewBox="0 0 166.6875 132.29167"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   sodipodi:docname="cover_image.svg"
+   inkscape:export-filename="/home/pkowal/deepspaceimmersion/cover_image.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     units="px"
+     width="630px"
+     inkscape:zoom="1"
+     inkscape:cx="443"
+     inkscape:cy="337"
+     inkscape:window-width="2560"
+     inkscape:window-height="1355"
+     inkscape:window-x="0"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Warstwa 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <image
+       width="166.688"
+       height="132.29207"
+       preserveAspectRatio="none"
+       xlink:href="../cover_image.jpg"
+       id="image832"
+       x="0"
+       y="0"
+       style="stroke-width:0.999999" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.3598px;line-height:1.25;font-family:'Cosmic Blaster';-inkscape-font-specification:'Cosmic Blaster, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.264584"
+       x="63.860542"
+       y="95.80481"
+       id="text2694"
+       transform="scale(0.991843,1.0082241)"><tspan
+         sodipodi:role="line"
+         id="tspan2692"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.3598px;font-family:'Cosmic Blaster';-inkscape-font-specification:'Cosmic Blaster, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;stroke:none;stroke-width:0.264584"
+         x="63.860542"
+         y="95.80481">Deep Space</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.3598px;font-family:'Cosmic Blaster';-inkscape-font-specification:'Cosmic Blaster, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;stroke:none;stroke-width:0.264584"
+         x="63.860542"
+         y="118.75456"
+         id="tspan25870">ImMersi   n</tspan></text>
+    <path
+       id="path16982"
+       style="fill:none;stroke:#7dff00;stroke-width:3.96875;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 132.66749,103.3952 3.15683,5.55801 m 6.31362,11.11603 3.15683,5.55802 m -12.6455,-1.03156 3.16211,-5.15778 m 6.32422,-10.31559 3.1621,-5.15778 m 0.72497,11.10371 c -0.62392,5.21464 -4.20382,9.05689 -7.99589,8.58192 -3.79209,-0.475 -6.36037,-5.08737 -5.73645,-10.302 0.62393,-5.21466 4.20382,-9.05691 7.99591,-8.58192 3.79207,0.47501 6.36036,5.08736 5.73643,10.302 z"
+       sodipodi:nodetypes="ccccccccsssss" />
+  </g>
+</svg>
