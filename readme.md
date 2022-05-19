@@ -4,7 +4,7 @@
 It aims at tracking your head without any special gear, also trying to make it fast and cheap, so it can run on older hardware.
 To achieve this goal it's tracking a DIY marker attached to your head, allowing to dive into the game world.
 
-![Screenshot of a running game](https://raw.githubusercontent.com/pkowal1982/deepspaceimmersion/master/screenshot.jpg)
+![Screenshot of a running game](https://raw.githubusercontent.com/pkowal1982/deepspaceimmersion/master/production/screenshot.jpg)
 
 ## Testing
 
@@ -12,16 +12,12 @@ You can download exported game for Ubuntu/Windows from [itch.io](https://pkowal1
 
 But if you know what your doing:
 
-1. Download [latest Godot Engine build](https://github.com/pkowal1982/godot/suites/4055810063/artifacts/102949712)
-incorporating [camera branch](https://github.com/pkowal1982/godot/tree/camera)
+1. Download branch of Godot incorporating [camera branch](https://github.com/pkowal1982/godot/tree/camera)
 and [tracking module](https://github.com/pkowal1982/godot/tree/tracker).  
-Remember to log into your GitHub account to download prebuilt binaries.  
-You can also compile the [tracking module](https://github.com/pkowal1982/godot/tree/tracker) branch yourself.  
-[Windows build](https://github.com/pkowal1982/godot/suites/4055810054/artifacts/102954065)
-allows to play the game but without head tracking.
+Compile it and run executable. Remember that it allows to use camera only on Linux.
 
 2. Download [this project](https://github.com/pkowal1982/DeepSpaceImmersion/archive/refs/heads/master.zip)
-and open it with modified Godot Engine editor you've already downloaded in step 1.
+and open it with modified Godot Engine editor you've already downloaded and compiled in step 1.
 
 3. Get yourself a marker. It can be color sticky note, pin-pong ball or you can print
 black and white one from the [file provided.](https://github.com/pkowal1982/DeepSpaceImmersion/blob/master/image/markers.svg).

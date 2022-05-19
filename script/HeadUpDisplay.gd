@@ -1,10 +1,11 @@
 extends CanvasLayer
 
-const ShieldStatus = preload("res://script/Target.gd")
-const Target = preload("res://script/Target.gd")
+# TODO change to const/preload after fixing #56343
+var CrossHair: Resource
 
 
 func _ready() -> void:
+	CrossHair = load("res://image/CrossHair.png")
 	Global.hud = self
 	var cross_hair := load("res://image/CrossHair.png")
 	Input.set_custom_mouse_cursor(cross_hair, Input.CURSOR_CROSS, Vector2(16, 16))

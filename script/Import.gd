@@ -2,10 +2,10 @@
 extends EditorScenePostImport
 
 
-func _post_import(root: Object) -> Object:
+func _post_import(root: Node) -> Object:
 	add_rigid_bodies(root)
 	add_collision_shapes(root)
-	set_owner_recursively(root, root)
+#	set_owner_recursively(root, root)
 	return root
 
 

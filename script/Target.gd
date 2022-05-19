@@ -2,10 +2,11 @@ extends CharacterBody3D
 
 signal died()
 
-const ShieldStatus := preload("res://scene/ShieldStatus.tscn")
 const FULL_SHIELD := 3.0
 const FULL_REPAIR_TIME := 3.0
 
+# TODO change to const/preload after fixing #56343
+var ShieldStatus: PackedScene
 var Junk: PackedScene
 var shield := 3.0
 var time_to_die := 30.0
@@ -17,6 +18,7 @@ var immune := false
 
 
 func _ready() -> void:
+	ShieldStatus = load("res://scene/ShieldStatus.tscn")
 	add_shield()
 	scale = Vector3.ONE * 0.01
 	var tween = create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
@@ -29,7 +31,7 @@ func add_shield() -> void:
 	Global.add_hud_element(shield_status)
 
 
-func _input_event(_camera, event, location, normal, _shape_idx) -> void:
+func _input_event(_camera: Camera3D, event: InputEvent, location: Vector3, normal: Vector3, _shape_idx: int) -> void:
 	if immune:
 		return
 	if event is InputEventMouseButton and event.pressed:

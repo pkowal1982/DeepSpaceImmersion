@@ -1,12 +1,14 @@
 extends Node3D
 
-const JunkScript: Script = preload("res://script/Junk.gd")
+# TODO change to const/preload after fixing #56343
+var JunkScript: Script
 
 var rng := RandomNumberGenerator.new()
 var scores := {}
 var actual_hash := 0
 
 func _ready() -> void:
+	JunkScript = load("res://script/Junk.gd")
 	Global.junks = self
 	rng.randomize()
 
@@ -19,7 +21,7 @@ func add(node: Node3D, speed = Vector3()) -> void:
 			var junk: RigidDynamicBody3D = child
 			junk.set_script(JunkScript)
 			junk.request_ready()
-			junk.key = actual_hash
+			junk.score_hash = actual_hash
 			var junk_global_transform := junk.global_transform
 			node.remove_child(junk)
 			add_child(junk)
@@ -29,8 +31,8 @@ func add(node: Node3D, speed = Vector3()) -> void:
 	node.queue_free()
 
 
-func get_score(key: int) -> int:
-	if not scores.has(key):
-		scores[key] = 0
-	scores[key] += 1
-	return scores[key]
+func get_score(score_hash: int) -> int:
+	if not scores.has(score_hash):
+		scores[score_hash] = 0
+	scores[score_hash] += 1
+	return scores[score_hash]

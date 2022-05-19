@@ -9,13 +9,13 @@ var tween: Tween
 
 func _ready() -> void:
 	super._ready()
-	RocketJunk =  load("res://gltf/RocketJunk.gltf")
+	RocketJunk = load("res://gltf/RocketJunk.gltf")
 	Global.game_over.connect(on_game_over)
 	Junk = RocketJunk
 
 
 func _physics_process(_delta: float) -> void:
-	motion_velocity = -transform.basis.z * speed
+	velocity = -transform.basis.z * speed
 	move_and_slide()
 	if position.length() >= DEEP_SPACE and not tween:
 		tween = create_tween()

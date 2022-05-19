@@ -3,19 +3,18 @@ extends Node3D
 const OUTER_SPACE := Vector3.RIGHT * 25
 
 # TODO change to const/preload after fixing #56343
-var ASTEROIDS := []
+var ASTEROIDS: Array
 
 var rng := RandomNumberGenerator.new()
 var asteroids = []
 var places = []
-
 
 func _ready() -> void:
 	for i in range(1, 8):
 		ASTEROIDS.append(load(str("res://gltf/Asteroid", i, ".gltf")))
 	rng.randomize()
 	for i in range(0, 100):
-		var place = inner_space()
+		var place := inner_space()
 		if is_too_close(place):
 			continue
 		add_asteroid(place)
@@ -43,4 +42,5 @@ func random_rotation() -> Vector3:
 
 
 func inner_space() -> Vector3:
-	return Vector3(rng.randf_range(-18, 18), rng.randf_range(-9, 9), rng.randf_range(0, -10))
+	var result := Vector3(rng.randf_range(-18, 18), rng.randf_range(-9, 9), rng.randf_range(0, -10))
+	return result

@@ -40,11 +40,7 @@ offset_bottom = -16.0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 32
 text = "Time"
-structured_text_bidi_override_options = []
 script = ExtResource( "6_jqp7u" )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Score" type="Label" parent="."]
 anchor_left = 1.0
@@ -60,11 +56,7 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 32
 text = "Score
 "
-structured_text_bidi_override_options = []
 script = ExtResource( "7_l3c1m" )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="GameOver" type="Label" parent="."]
 visible = false
@@ -81,12 +73,6 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 32
 text = "Game Over
 "
-align = 1
-structured_text_bidi_override_options = []
-script = null
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="RayCast" type="RayCast3D" parent="."]
 script = ExtResource( "8_esgxk" )
@@ -94,7 +80,6 @@ script = ExtResource( "8_esgxk" )
 [node name="Light" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.394939, -0.778152, 0.488368, 0.388772, 0.623197, 0.678588, -0.832394, -0.078137, 0.548648, 4.41875, 1.78947, 0)
 shadow_enabled = true
-script = null
 
 [node name="CameraParent" type="Node3D" parent="."]
 script = ExtResource( "9_5plvo" )
@@ -103,4 +88,3 @@ script = ExtResource( "9_5plvo" )
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
 environment = ExtResource( "10_spi47" )
 far = 40.0
-script = null

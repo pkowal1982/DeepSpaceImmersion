@@ -1,17 +1,17 @@
 [remap]
 
 importer="texture"
-type="StreamTexture2D"
+type="CompressedTexture2D"
 uid="uid://d3pbfgumhskh6"
-path="res://.godot/imported/Restart.svg-5f0fcef2834e31f4bb08e5102b299f1d.stex"
+path="res://.godot/imported/Restart.svg-c185216ab3380f3a134aa8d6aba5d11a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://production/Restart.svg"
-dest_files=["res://.godot/imported/Restart.svg-5f0fcef2834e31f4bb08e5102b299f1d.stex"]
+source_file="res://Restart.svg"
+dest_files=["res://.godot/imported/Restart.svg-c185216ab3380f3a134aa8d6aba5d11a.ctex"]
 
 [params]
 
@@ -21,7 +21,6 @@ compress/hdr_compression=1
 compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
-compress/streamed=false
 mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
@@ -29,7 +28,8 @@ roughness/src_normal=""
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false
-process/HDR_as_SRGB=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
 svg/scale=1.0

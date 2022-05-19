@@ -1,7 +1,7 @@
 extends RigidDynamicBody3D
 
 var immune := false
-var key := 0
+var score_hash := 0
 
 func _ready() -> void:
 	Global.game_over.connect(on_game_over)
@@ -11,7 +11,7 @@ func _input_event(_camera: Camera3D, event: InputEvent, location: Vector3, norma
 	if immune:
 		return
 	if event is InputEventMouseButton and event.pressed:
-		Global.score.add(Global.junks.get_score(key))
+		Global.score.add(Global.junks.get_score(score_hash))
 		Global.blobs.add(location, normal)
 		die()
 

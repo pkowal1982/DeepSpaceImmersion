@@ -4,14 +4,15 @@ const MAX_SATELLITES := 10
 
 # TODO change to const/preload after fixing #56343
 var Satellite: PackedScene
-var SatelliteScript: Resource
-
+var SatelliteScript: Script
 var rng := RandomNumberGenerator.new()
 var satellite_count := 0
 var time_to_deploy := 1.0
 
 
 func _ready() -> void:
+	Satellite = load("res://gltf/Satellite.gltf")
+	SatelliteScript = load("res://script/Satellite.gd")
 	rng.randomize()
 	Satellite = load("res://gltf/Satellite.gltf")
 	SatelliteScript = load("res://script/Satellite.gd")

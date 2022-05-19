@@ -15,6 +15,7 @@ func _process(delta) -> void:
 	else:
 		Global.emit_game_over()
 		set_process(false)
+		set_text("")
 
 
 func reset() -> void:

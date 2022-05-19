@@ -61,7 +61,7 @@ func assign_controls_to_variables() -> void:
 	hue = $Columns/Column2/Threshold/Hue
 	saturation = $Columns/Column2/Threshold/Saturation
 	value = $Columns/Column2/Threshold/Value
-	color_picker = $Columns/Column2/ColorPicker
+	color_picker = $Columns/Column2/ColorPicker.get_picker()
 
 
 func update_cameras(_unused: int) -> void:
@@ -132,5 +132,5 @@ func set_tracking_mode(mode: int) -> void:
 
 
 func on_tracking_position_updated(tracking_position: Vector2) -> void:
-	$Cross.set_position((tracking_position + Vector2(0.5, 0.5)) * camera_texture.get_size() + camera_rectangle.rect_global_position)
-	$Frame.set_position((tracking_position + Vector2(0.5, 0.5)) * camera_texture.get_size() + camera_rectangle.rect_global_position)
+	$Cross.set_position((tracking_position + Vector2(0.5, 0.5)) * camera_texture.get_size() + camera_rectangle.global_position)
+	$Frame.set_position((tracking_position + Vector2(0.5, 0.5)) * camera_texture.get_size() + camera_rectangle.global_position)

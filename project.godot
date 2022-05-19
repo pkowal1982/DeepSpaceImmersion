@@ -13,7 +13,7 @@ config_version=5
 config/name="Deep Space Immersion"
 run/main_scene="res://scene/DeepSpaceImmersion.tscn"
 config/icon="res://icon.png"
-config/windows_native_icon="res://icon.ico"
+config/windows_native_icon="res://production/icon.ico"
 config/features=PackedStringArray("4.0")
 
 [autoload]
@@ -24,6 +24,10 @@ Global="*res://script/Global.gd"
 
 window/size/width=1280
 window/size/height=720
+
+[filesystem]
+
+import/blender/enabled=false
 
 [physics]
 

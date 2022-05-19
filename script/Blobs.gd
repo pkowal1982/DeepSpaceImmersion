@@ -8,6 +8,8 @@ var rng := RandomNumberGenerator.new()
 
 
 func _ready() -> void:
+	Blob = load("res://gltf/Blob.gltf")
+	BlobScript = load("res://script/Blob.gd")
 	Global.blobs = self
 	Blob = load("res://gltf/Blob.gltf")
 	BlobScript = load("res://script/Blob.gd")

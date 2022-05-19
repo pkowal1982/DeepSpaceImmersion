@@ -12,7 +12,7 @@ func _ready() -> void:
 	repair_time = $RepairTime
 
 
-func _process() -> void:
+func _process(_delta: float) -> void:
 	update()
 
 

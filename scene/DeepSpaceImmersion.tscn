@@ -9,9 +9,9 @@
 [ext_resource type="Script" path="res://script/ShowSettings.gd" id="5_3c45w"]
 [ext_resource type="Texture2D" uid="uid://coyah44acds44" path="res://image/Restart.png" id="5_w0gib"]
 [ext_resource type="Script" path="res://script/ShowHelp.gd" id="7_wnklu"]
-[ext_resource type="Texture2D" uid="uid://ceki0vj8km1np" path="res://image/Cross.png" id="10_b70x3"]
+[ext_resource type="Texture2D" uid="uid://dhrt05cuctqke" path="res://image/Cross.png" id="10_b70x3"]
 [ext_resource type="Script" path="res://script/Restart.gd" id="10_jiatf"]
-[ext_resource type="Texture2D" uid="uid://cqrghmt1hc84b" path="res://image/Frame.png" id="11_fbk0g"]
+[ext_resource type="Texture2D" uid="uid://clf0143icg626" path="res://image/Frame.png" id="11_fbk0g"]
 [ext_resource type="PackedScene" uid="uid://rq1h0g5qbr6l" path="res://scene/DeepSpace.tscn" id="14_fx6kr"]
 
 [sub_resource type="CameraTexture" id="CameraTexture_p1oyg"]
@@ -36,28 +36,19 @@ text = "Restart
 "
 icon = ExtResource( "5_w0gib" )
 script = ExtResource( "10_jiatf" )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Help" type="PanelContainer" parent="CenterContainer"]
 visible = false
-offset_top = 13.0
-offset_right = 1280.0
-offset_bottom = 707.0
-rect_min_size = Vector2(1280, 0)
+offset_left = 512.0
+offset_top = 300.0
+offset_right = 512.0
+offset_bottom = 300.0
 script = ExtResource( "3_obwnf" )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="HelpText" type="RichTextLabel" parent="CenterContainer/Help"]
 offset_left = 7.0
@@ -66,6 +57,7 @@ offset_right = 1273.0
 offset_bottom = 687.0
 mouse_filter = 1
 theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
 text = "[center]Eliminate space junk to make a better universe.
 
 [color=gray]Rockets and satellites are force shield protected.
@@ -87,121 +79,89 @@ Be sure marker is visible in all head positions and is only thing visible.
 ** Sticky notes tend to change hue when tilted, especially in bad lighting conditions.
 You can use color ping pong ball as marker, as it's rotation resistant.[/color][/center]
 "
-bbcode_enabled = true
 fit_content_height = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Settings" type="PanelContainer" parent="."]
 offset_right = 351.0
 offset_bottom = 649.0
 script = ExtResource( "3_8u80f" )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Columns" type="HBoxContainer" parent="Settings"]
-offset_left = 7.0
-offset_top = 7.0
-offset_right = 344.0
-offset_bottom = 668.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+offset_right = 351.0
+offset_bottom = 649.0
 
 [node name="Column1" type="VBoxContainer" parent="Settings/Columns"]
-offset_bottom = 661.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+offset_bottom = 649.0
 
 [node name="CameraRectangle" type="TextureRect" parent="Settings/Columns/Column1"]
 texture = SubResource( "CameraTexture_p1oyg" )
 script = ExtResource( "4_6xbjc" )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="MaskedRectangle" type="TextureRect" parent="Settings/Columns/Column1"]
 offset_top = 4.0
 offset_bottom = 4.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Cameras" type="ItemList" parent="Settings/Columns/Column1"]
 offset_top = 8.0
-offset_bottom = 17.0
+offset_bottom = 16.0
 auto_height = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Column2" type="VBoxContainer" parent="Settings/Columns"]
 offset_left = 4.0
-offset_right = 333.0
-offset_bottom = 661.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+offset_right = 298.0
+offset_bottom = 649.0
 
-[node name="ColorPicker" type="ColorPicker" parent="Settings/Columns/Column2"]
-offset_right = 329.0
-offset_bottom = 513.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="ColorPicker" type="ColorPickerButton" parent="Settings/Columns/Column2"]
+minimum_size = Vector2(0, 32)
+offset_right = 294.0
+offset_bottom = 32.0
 
 [node name="Tracking" type="HBoxContainer" parent="Settings/Columns/Column2"]
-offset_top = 517.0
-offset_right = 329.0
-offset_bottom = 571.0
+offset_top = 36.0
+offset_right = 294.0
+offset_bottom = 90.0
 
 [node name="Idle" type="CheckBox" parent="Settings/Columns/Column2/Tracking"]
-offset_right = 56.0
+offset_right = 57.0
 offset_bottom = 54.0
 text = "Idle"
 
 [node name="HsvTrack" type="CheckBox" parent="Settings/Columns/Column2/Tracking"]
-offset_left = 60.0
-offset_right = 130.0
+offset_left = 61.0
+offset_right = 132.0
 offset_bottom = 54.0
 text = "HSV
 Track"
 
 [node name="HsvMask" type="CheckBox" parent="Settings/Columns/Column2/Tracking"]
-offset_left = 134.0
-offset_right = 203.0
+offset_left = 136.0
+offset_right = 205.0
 offset_bottom = 54.0
 text = "HSV
 Mask
 "
 
 [node name="MarkerTrack" type="CheckBox" parent="Settings/Columns/Column2/Tracking"]
-offset_left = 207.0
-offset_right = 291.0
+offset_left = 209.0
+offset_right = 294.0
 offset_bottom = 54.0
 text = "Marker
 Track"
 
 [node name="Threshold" type="GridContainer" parent="Settings/Columns/Column2"]
-offset_top = 575.0
-offset_right = 329.0
-offset_bottom = 661.0
+offset_top = 94.0
+offset_right = 294.0
+offset_bottom = 180.0
 columns = 2
 
 [node name="H" type="Label" parent="Settings/Columns/Column2/Threshold"]
-offset_right = 16.0
+offset_right = 17.0
 offset_bottom = 26.0
 text = "H:"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Hue" type="HSlider" parent="Settings/Columns/Column2/Threshold"]
-offset_left = 20.0
-offset_right = 329.0
+offset_left = 21.0
+offset_right = 294.0
 offset_bottom = 16.0
 size_flags_horizontal = 3
 max_value = 1.0
@@ -210,17 +170,14 @@ value = 0.1
 
 [node name="S" type="Label" parent="Settings/Columns/Column2/Threshold"]
 offset_top = 30.0
-offset_right = 16.0
+offset_right = 17.0
 offset_bottom = 56.0
 text = "S:"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Saturation" type="HSlider" parent="Settings/Columns/Column2/Threshold"]
-offset_left = 20.0
+offset_left = 21.0
 offset_top = 30.0
-offset_right = 329.0
+offset_right = 294.0
 offset_bottom = 46.0
 size_flags_horizontal = 3
 max_value = 1.0
@@ -229,17 +186,14 @@ value = 0.1
 
 [node name="V" type="Label" parent="Settings/Columns/Column2/Threshold"]
 offset_top = 60.0
-offset_right = 16.0
+offset_right = 17.0
 offset_bottom = 86.0
 text = "V:"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Value" type="HSlider" parent="Settings/Columns/Column2/Threshold"]
-offset_left = 20.0
+offset_left = 21.0
 offset_top = 60.0
-offset_right = 329.0
+offset_right = 294.0
 offset_bottom = 76.0
 size_flags_horizontal = 3
 max_value = 1.0
@@ -258,25 +212,16 @@ anchor_right = 1.0
 offset_left = -40.0
 offset_bottom = 40.0
 grow_horizontal = 0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ShowSettings" type="CheckButton" parent="Buttons"]
-offset_right = 141.0
+offset_right = 110.0
 offset_bottom = 40.0
 text = "Settings"
 script = ExtResource( "5_3c45w" )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ShowHelp" type="CheckButton" parent="Buttons"]
-offset_left = 145.0
-offset_right = 260.0
+offset_left = 114.0
+offset_right = 198.0
 offset_bottom = 40.0
 text = "Help"
 script = ExtResource( "7_wnklu" )
-__meta__ = {
-"_edit_use_anchors_": false
-}
