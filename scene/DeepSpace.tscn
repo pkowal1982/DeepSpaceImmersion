@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://rq1h0g5qbr6l"]
+[gd_scene load_steps=13 format=3 uid="uid://rq1h0g5qbr6l"]
 
 [ext_resource type="Script" path="res://script/Asteroids.gd" id="1_03dgl"]
 [ext_resource type="Script" path="res://script/DeepSpace.gd" id="1_bifnf"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://script/RayCast.gd" id="8_esgxk"]
 [ext_resource type="Script" path="res://script/CameraParent.gd" id="9_5plvo"]
 [ext_resource type="Environment" uid="uid://b6wof5w5v1g41" path="res://environment.tres" id="10_spi47"]
+[ext_resource type="Script" path="res://script/Camera.gd" id="12_eeyog"]
 
 [node name="DeepSpace" type="Node3D"]
 script = ExtResource( "1_bifnf" )
@@ -82,9 +83,11 @@ transform = Transform3D(0.394939, -0.778152, 0.488368, 0.388772, 0.623197, 0.678
 shadow_enabled = true
 
 [node name="CameraParent" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
 script = ExtResource( "9_5plvo" )
 
 [node name="Camera" type="Camera3D" parent="CameraParent"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
 environment = ExtResource( "10_spi47" )
+fov = 72.0
 far = 40.0
+script = ExtResource( "12_eeyog" )

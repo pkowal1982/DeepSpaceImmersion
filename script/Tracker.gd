@@ -53,7 +53,7 @@ func track_image() -> void:
 			previous_position = marker_tracker.track(image, previous_position)
 			v = Vector2(previous_position.x, previous_position.y)
 	if v != Vector2(-1, -1):
-		Global.set_tracking_position(v / image.get_size() - Vector2.ONE * 0.5)
+		Global.set_tracking_position(2.0 * v / image.get_size() - Vector2.ONE)
 	pass
 
 
