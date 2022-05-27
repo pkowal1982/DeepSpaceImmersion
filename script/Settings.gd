@@ -98,7 +98,7 @@ func set_format_with_parameters(camera_feed: CameraFeed, d: Dictionary) -> bool:
 	for index in range(0, formats.size()):
 		var format: Dictionary = formats[index]
 		if d["width"] == format["width"] and d["frame_denominator"] == format["frame_denominator"] and d["format"] in format["format"]:
-			camera_feed.set_format(index, {"output": "separate"} if marker_track.pressed else {})
+			camera_feed.set_format(index, {"output": "separate"} if marker_track.button_pressed else {})
 			return true
 	return false
 
