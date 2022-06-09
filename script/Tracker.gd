@@ -32,7 +32,7 @@ func _thread_function(_unused) -> void:
 
 
 func on_new_frame() -> void:
-	if Global.tracking_mode == Global.IDLE:
+	if Global.tracking_mode == Global.KEYS:
 		return
 	semaphore.post()
 
@@ -40,7 +40,7 @@ func on_new_frame() -> void:
 func track_image() -> void:
 	var texture: Texture = Global.camera_rectangle.get_texture()
 	var image: Image = texture.get_image()
-	var v := Vector2(-1, -1)
+	var v := Vector3(-1, -1, -1)
 	match Global.tracking_mode:
 		Global.HSV_MASK:
 			var masked_image = Image.new()
@@ -51,9 +51,9 @@ func track_image() -> void:
 		Global.MARKER_TRACK:
 			image.convert(Image.FORMAT_L8)
 			previous_position = marker_tracker.track(image, previous_position)
-			v = Vector2(previous_position.x, previous_position.y)
-	if v != Vector2(-1, -1):
-		Global.set_tracking_position(2.0 * v / image.get_size() - Vector2.ONE)
+			v = previous_position
+	if not v.z < 0:
+		Global.set_tracking_position(2.0 * Vector2(v.x, v.y) / image.get_size() - Vector2.ONE)
 	pass
 
 

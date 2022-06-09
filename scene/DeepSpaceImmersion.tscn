@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://y42ho5uudpws"]
+[gd_scene load_steps=17 format=3 uid="uid://y42ho5uudpws"]
 
 [ext_resource type="Script" path="res://script/HeadUpDisplay.gd" id="1_446rp"]
 [ext_resource type="Script" path="res://script/DeepSpaceImmersion.gd" id="1_fp0y2"]
@@ -11,7 +11,9 @@
 [ext_resource type="Script" path="res://script/ShowHelp.gd" id="7_wnklu"]
 [ext_resource type="Texture2D" uid="uid://dhrt05cuctqke" path="res://image/Cross.png" id="10_b70x3"]
 [ext_resource type="Script" path="res://script/Restart.gd" id="10_jiatf"]
+[ext_resource type="Script" path="res://script/Keys.gd" id="10_myj4i"]
 [ext_resource type="Texture2D" uid="uid://clf0143icg626" path="res://image/Frame.png" id="11_fbk0g"]
+[ext_resource type="Script" path="res://script/Joysticks.gd" id="11_u8vrn"]
 [ext_resource type="PackedScene" uid="uid://rq1h0g5qbr6l" path="res://scene/DeepSpace.tscn" id="14_fx6kr"]
 
 [sub_resource type="CameraTexture" id="CameraTexture_p1oyg"]
@@ -87,7 +89,7 @@ offset_bottom = 649.0
 script = ExtResource( "3_8u80f" )
 
 [node name="Columns" type="HBoxContainer" parent="Settings"]
-offset_right = 351.0
+offset_right = 396.0
 offset_bottom = 649.0
 
 [node name="Column1" type="VBoxContainer" parent="Settings/Columns"]
@@ -108,49 +110,56 @@ auto_height = true
 
 [node name="Column2" type="VBoxContainer" parent="Settings/Columns"]
 offset_left = 4.0
-offset_right = 298.0
+offset_right = 396.0
 offset_bottom = 649.0
 
 [node name="ColorPicker" type="ColorPickerButton" parent="Settings/Columns/Column2"]
 minimum_size = Vector2(0, 32)
-offset_right = 294.0
+offset_right = 392.0
 offset_bottom = 32.0
 
 [node name="Tracking" type="HBoxContainer" parent="Settings/Columns/Column2"]
 offset_top = 36.0
-offset_right = 294.0
+offset_right = 392.0
 offset_bottom = 90.0
 
-[node name="Idle" type="CheckBox" parent="Settings/Columns/Column2/Tracking"]
-offset_right = 57.0
+[node name="Keys" type="CheckBox" parent="Settings/Columns/Column2/Tracking"]
+offset_right = 64.0
 offset_bottom = 54.0
-text = "Idle"
+text = "Keys"
+script = ExtResource( "10_myj4i" )
 
 [node name="HsvTrack" type="CheckBox" parent="Settings/Columns/Column2/Tracking"]
-offset_left = 61.0
-offset_right = 132.0
+offset_left = 68.0
+offset_right = 139.0
 offset_bottom = 54.0
 text = "HSV
 Track"
 
 [node name="HsvMask" type="CheckBox" parent="Settings/Columns/Column2/Tracking"]
-offset_left = 136.0
-offset_right = 205.0
+offset_left = 143.0
+offset_right = 212.0
 offset_bottom = 54.0
 text = "HSV
 Mask
 "
 
 [node name="MarkerTrack" type="CheckBox" parent="Settings/Columns/Column2/Tracking"]
-offset_left = 209.0
-offset_right = 294.0
+offset_left = 216.0
+offset_right = 301.0
 offset_bottom = 54.0
 text = "Marker
 Track"
 
+[node name="Joystick" type="CheckBox" parent="Settings/Columns/Column2/Tracking"]
+offset_left = 305.0
+offset_right = 392.0
+offset_bottom = 54.0
+text = "Joystick"
+
 [node name="Threshold" type="GridContainer" parent="Settings/Columns/Column2"]
 offset_top = 94.0
-offset_right = 294.0
+offset_right = 392.0
 offset_bottom = 180.0
 columns = 2
 
@@ -161,7 +170,7 @@ text = "H:"
 
 [node name="Hue" type="HSlider" parent="Settings/Columns/Column2/Threshold"]
 offset_left = 21.0
-offset_right = 294.0
+offset_right = 392.0
 offset_bottom = 16.0
 size_flags_horizontal = 3
 max_value = 1.0
@@ -177,7 +186,7 @@ text = "S:"
 [node name="Saturation" type="HSlider" parent="Settings/Columns/Column2/Threshold"]
 offset_left = 21.0
 offset_top = 30.0
-offset_right = 294.0
+offset_right = 392.0
 offset_bottom = 46.0
 size_flags_horizontal = 3
 max_value = 1.0
@@ -193,12 +202,42 @@ text = "V:"
 [node name="Value" type="HSlider" parent="Settings/Columns/Column2/Threshold"]
 offset_left = 21.0
 offset_top = 60.0
-offset_right = 294.0
+offset_right = 392.0
 offset_bottom = 76.0
 size_flags_horizontal = 3
 max_value = 1.0
 step = 0.0
 value = 0.1
+
+[node name="Joystick" type="HBoxContainer" parent="Settings/Columns/Column2"]
+offset_top = 184.0
+offset_right = 392.0
+offset_bottom = 215.0
+
+[node name="Label" type="Label" parent="Settings/Columns/Column2/Joystick"]
+offset_top = 2.0
+offset_right = 88.0
+offset_bottom = 28.0
+text = "Joystick on:"
+
+[node name="Left" type="CheckBox" parent="Settings/Columns/Column2/Joystick"]
+offset_left = 92.0
+offset_right = 150.0
+offset_bottom = 31.0
+text = "Left"
+
+[node name="Right" type="CheckBox" parent="Settings/Columns/Column2/Joystick"]
+offset_left = 154.0
+offset_right = 223.0
+offset_bottom = 31.0
+text = "Right"
+
+[node name="Joysticks" type="ItemList" parent="Settings/Columns/Column2"]
+offset_top = 219.0
+offset_right = 392.0
+offset_bottom = 227.0
+auto_height = true
+script = ExtResource( "11_u8vrn" )
 
 [node name="Cross" type="Sprite2D" parent="Settings"]
 texture = ExtResource( "10_b70x3" )

@@ -6,13 +6,17 @@ signal game_over()
 signal show_help(visible)
 signal frame_changed()
 
-enum { IDLE, HSV_TRACK, HSV_MASK, MARKER_TRACK }
+enum { KEYS, HSV_TRACK, HSV_MASK, MARKER_TRACK, JOYSTICK }
+
+const DISTANCE := 0.01
+const MIN_POSITION := Vector2(-1.0, -1.0)
+const MAX_POSITION := Vector2(1.0, 1.0)
 
 var deep_space_immersion: Node3D
 var camera_rectangle: TextureRect
 var hud: Node
 var camera: Camera3D
-var tracking_mode := IDLE
+var tracking_mode := KEYS
 var tracking_position := Vector2()
 var tracking_image: Image
 var tracking_color := Color.BLACK
@@ -31,10 +35,9 @@ func add_hud_element(node: Node2D) -> void:
 
 
 func set_tracking_position(v: Vector2) -> void:
-	if v == Vector2(-1, -1):
-		return
-	if tracking_position != v:
-		tracking_position = v
+	var clipped := v.clamp(MIN_POSITION, MAX_POSITION)
+	if tracking_position.distance_to(clipped) > DISTANCE:
+		tracking_position = clipped
 		emit_signal("tracking_position_updated", tracking_position)
 
 
@@ -44,7 +47,7 @@ func set_masked_image(masked_image: Image) -> void:
 
 func set_tracking_mode(mode: int) -> void:
 	tracking_mode = mode
-	if mode == IDLE:
+	if mode == KEYS:
 		set_tracking_position(Vector2())
 
 

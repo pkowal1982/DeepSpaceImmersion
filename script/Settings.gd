@@ -5,10 +5,13 @@ var camera_rectangle: TextureRect
 var masked_rectangle: TextureRect
 var camera_texture: CameraTexture
 var color_picker: ColorPicker
-var idle: CheckBox
+var keys: CheckBox
 var hsv_track: CheckBox
 var hsv_mask: CheckBox
 var marker_track: CheckBox
+var joystick: CheckBox
+var left: CheckBox
+var right: CheckBox
 #var masked_texture: ImageTexture
 var hue: HSlider
 var saturation: HSlider
@@ -22,15 +25,21 @@ func _ready() -> void:
 	assign_controls_to_variables()
 
 	var button_group := ButtonGroup.new()
-	idle.set_button_group(button_group)
+	keys.set_button_group(button_group)
 	hsv_track.set_button_group(button_group)
 	hsv_mask.set_button_group(button_group)
 	marker_track.set_button_group(button_group)
-	idle.set_pressed(true)
-	idle.connect("pressed", set_tracking_mode, [Global.IDLE])
-	hsv_track.connect("pressed", set_tracking_mode, [Global.HSV_TRACK])
-	hsv_mask.connect("pressed", set_tracking_mode, [Global.HSV_MASK])
-	marker_track.connect("pressed", set_tracking_mode, [Global.MARKER_TRACK])
+	joystick.set_button_group(button_group)
+	keys.set_pressed(true)
+	keys.connect("pressed", on_tracking_mode_changed, [Global.KEYS])
+	hsv_track.connect("pressed", on_tracking_mode_changed, [Global.HSV_TRACK])
+	hsv_mask.connect("pressed", on_tracking_mode_changed, [Global.HSV_MASK])
+	marker_track.connect("pressed", on_tracking_mode_changed, [Global.MARKER_TRACK])
+	joystick.connect("pressed", on_tracking_mode_changed, [Global.JOYSTICK])
+	var left_right_button_group := ButtonGroup.new()
+	left.set_button_group(left_right_button_group)
+	right.set_button_group(left_right_button_group)
+	left.button_pressed = true
 
 	hue.value_changed.connect(on_threshold_changed)
 	saturation.value_changed.connect(on_threshold_changed)
@@ -47,17 +56,20 @@ func _ready() -> void:
 	
 	Global.tracking_position_updated.connect(on_tracking_position_updated)
 	Global.masked_image_updated.connect(on_masked_image_updated)
-	set_tracking_mode(Global.IDLE)
+	on_tracking_mode_changed(Global.KEYS)
 
 
 func assign_controls_to_variables() -> void:
 	cameras = $Columns/Column1/Cameras
 	camera_rectangle = $Columns/Column1/CameraRectangle
 	masked_rectangle = $Columns/Column1/MaskedRectangle
-	idle = $Columns/Column2/Tracking/Idle
+	keys = $Columns/Column2/Tracking/Keys
 	hsv_track = $Columns/Column2/Tracking/HsvTrack
 	hsv_mask = $Columns/Column2/Tracking/HsvMask
 	marker_track = $Columns/Column2/Tracking/MarkerTrack
+	joystick = $Columns/Column2/Tracking/Joystick
+	left = $Columns/Column2/Joystick/Left
+	right = $Columns/Column2/Joystick/Right
 	hue = $Columns/Column2/Threshold/Hue
 	saturation = $Columns/Column2/Threshold/Saturation
 	value = $Columns/Column2/Threshold/Value
@@ -124,7 +136,7 @@ func on_threshold_changed(_unused) -> void:
 	Global.tracking_threshold = Vector3(hue.value, saturation.value, value.value)
 
 
-func set_tracking_mode(mode: int) -> void:
+func on_tracking_mode_changed(mode: int) -> void:
 	Global.set_tracking_mode(mode)
 	$Cross.visible = mode == Global.HSV_MASK or mode == Global.HSV_TRACK
 	$Frame.visible = mode == Global.MARKER_TRACK
@@ -132,5 +144,5 @@ func set_tracking_mode(mode: int) -> void:
 
 
 func on_tracking_position_updated(tracking_position: Vector2) -> void:
-	$Cross.set_position((tracking_position + Vector2(0.5, 0.5)) * camera_texture.get_size() + camera_rectangle.global_position)
-	$Frame.set_position((tracking_position + Vector2(0.5, 0.5)) * camera_texture.get_size() + camera_rectangle.global_position)
+	$Cross.set_position((tracking_position * 0.5 + Vector2(0.5, 0.5)) * camera_texture.get_size() + camera_rectangle.global_position)
+	$Frame.set_position((tracking_position * 0.5 + Vector2(0.5, 0.5)) * camera_texture.get_size() + camera_rectangle.global_position)
