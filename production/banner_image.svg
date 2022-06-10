@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="960"
+   height="240"
+   viewBox="0 0 254 63.500002"
+   version="1.1"
+   id="svg5"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
+   sodipodi:docname="banner_image.svg"
+   inkscape:export-filename="/home/pkowal/deepspaceimmersion/production/banner_image.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96">
+  <metadata
+     id="metadata11">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     units="px"
+     width="630px"
+     inkscape:zoom="1.4142136"
+     inkscape:cx="442.03262"
+     inkscape:cy="64.365887"
+     inkscape:window-width="2560"
+     inkscape:window-height="1352"
+     inkscape:window-x="0"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     showguides="true"
+     inkscape:guide-bbox="true">
+    <sodipodi:guide
+       position="241.3,35.454166"
+       orientation="1,0"
+       id="guide850"
+       inkscape:locked="false"
+       inkscape:label=""
+       inkscape:color="rgb(0,0,255)" />
+    <sodipodi:guide
+       position="261.54063,12.699997"
+       orientation="0,1"
+       id="guide852"
+       inkscape:locked="false"
+       inkscape:label=""
+       inkscape:color="rgb(0,0,255)" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Warstwa 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(61.647835,-80.962402)">
+    <image
+       sodipodi:absref="/home/pkowal/deepspaceimmersion/production/banner_background.png"
+       xlink:href="banner_background.png"
+       style="stroke-width:1.53960061"
+       width="254"
+       height="63.5"
+       preserveAspectRatio="none"
+       id="image847"
+       x="-61.647835"
+       y="80.962402" />
+    <path
+       style="fill:#ff00ff;stroke:#ff00ff;stroke-width:1.05833316;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M -56.858574,141.81653 H 187.56291"
+       id="path856"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.35980034px;line-height:1.25;font-family:'Cosmic Blaster';-inkscape-font-specification:'Cosmic Blaster, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.264584"
+       x="83.333878"
+       y="104.48755"
+       id="text2694"
+       transform="scale(0.99184299,1.0082241)"><tspan
+         sodipodi:role="line"
+         id="tspan2692"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.35980034px;font-family:'Cosmic Blaster';-inkscape-font-specification:'Cosmic Blaster, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;fill:#ffffff;stroke:none;stroke-width:0.264584"
+         x="83.333878"
+         y="104.48755">Deep Space</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.35980034px;font-family:'Cosmic Blaster';-inkscape-font-specification:'Cosmic Blaster, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;fill:#ffffff;stroke:none;stroke-width:0.264584"
+         x="83.333878"
+         y="127.4373"
+         id="tspan25870">ImMersi   n</tspan></text>
+    <path
+       id="path16982"
+       style="fill:none;stroke:#7dff00;stroke-width:3.96875;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 151.98219,112.14941 3.15683,5.55801 m 6.31362,11.11603 3.15683,5.55802 m -12.6455,-1.03156 3.16211,-5.15778 m 6.32422,-10.31559 3.1621,-5.15778 m 0.72497,11.10371 c -0.62392,5.21464 -4.20382,9.05689 -7.99589,8.58192 -3.79209,-0.475 -6.36037,-5.08737 -5.73645,-10.302 0.62393,-5.21466 4.20382,-9.05691 7.99591,-8.58192 3.79207,0.47501 6.36036,5.08736 5.73643,10.302 z"
+       sodipodi:nodetypes="ccccccccsssss"
+       inkscape:connector-curvature="0" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path858"
+       d="M -56.858574,139.69985 H 187.56291"
+       style="fill:#9953ff;stroke:#9953ff;stroke-width:1.05833316;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1" />
+  </g>
+</svg>
