@@ -14,24 +14,25 @@
 [ext_resource type="Script" path="res://script/Camera.gd" id="12_eeyog"]
 
 [node name="DeepSpace" type="Node3D"]
-script = ExtResource( "1_bifnf" )
+script = ExtResource("1_bifnf")
 
 [node name="Asteroids" type="Node3D" parent="."]
-script = ExtResource( "1_03dgl" )
+script = ExtResource("1_03dgl")
 
 [node name="Rockets" type="Node3D" parent="."]
-script = ExtResource( "2_jyroo" )
+script = ExtResource("2_jyroo")
 
 [node name="Satellites" type="Node3D" parent="."]
-script = ExtResource( "4_cyvbx" )
+script = ExtResource("4_cyvbx")
 
 [node name="Junks" type="Node3D" parent="."]
-script = ExtResource( "4_8eyy1" )
+script = ExtResource("4_8eyy1")
 
 [node name="Blobs" type="Node3D" parent="."]
-script = ExtResource( "5_x53wr" )
+script = ExtResource("5_x53wr")
 
 [node name="Time" type="Label" parent="."]
+anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 16.0
@@ -41,9 +42,10 @@ offset_bottom = -16.0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 32
 text = "Time"
-script = ExtResource( "6_jqp7u" )
+script = ExtResource("6_jqp7u")
 
 [node name="Score" type="Label" parent="."]
+anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -57,10 +59,11 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 32
 text = "Score
 "
-script = ExtResource( "7_l3c1m" )
+script = ExtResource("7_l3c1m")
 
 [node name="GameOver" type="Label" parent="."]
 visible = false
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -76,7 +79,7 @@ text = "Game Over
 "
 
 [node name="RayCast" type="RayCast3D" parent="."]
-script = ExtResource( "8_esgxk" )
+script = ExtResource("8_esgxk")
 
 [node name="Light" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.394939, -0.778152, 0.488368, 0.388772, 0.623197, 0.678588, -0.832394, -0.078137, 0.548648, 4.41875, 1.78947, 0)
@@ -84,10 +87,10 @@ shadow_enabled = true
 
 [node name="CameraParent" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
-script = ExtResource( "9_5plvo" )
+script = ExtResource("9_5plvo")
 
 [node name="Camera" type="Camera3D" parent="CameraParent"]
-environment = ExtResource( "10_spi47" )
+environment = ExtResource("10_spi47")
 fov = 72.0
 far = 40.0
-script = ExtResource( "12_eeyog" )
+script = ExtResource("12_eeyog")

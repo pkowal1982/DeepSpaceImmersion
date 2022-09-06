@@ -17,8 +17,8 @@ func add(node: Node3D, speed = Vector3()) -> void:
 	add_child(node)
 	actual_hash += 1
 	for child in node.get_children():
-		if child is RigidDynamicBody3D:
-			var junk: RigidDynamicBody3D = child
+		if child is RigidBody3D:
+			var junk: RigidBody3D = child
 			junk.set_script(JunkScript)
 			junk.request_ready()
 			junk.score_hash = actual_hash

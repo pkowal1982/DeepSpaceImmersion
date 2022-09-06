@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://y42ho5uudpws"]
+[gd_scene load_steps=16 format=3 uid="uid://y42ho5uudpws"]
 
 [ext_resource type="Script" path="res://script/HeadUpDisplay.gd" id="1_446rp"]
 [ext_resource type="Script" path="res://script/DeepSpaceImmersion.gd" id="1_fp0y2"]
@@ -7,27 +7,26 @@
 [ext_resource type="Script" path="res://script/Help.gd" id="3_obwnf"]
 [ext_resource type="Script" path="res://script/CameraRectangle.gd" id="4_6xbjc"]
 [ext_resource type="Script" path="res://script/ShowSettings.gd" id="5_3c45w"]
-[ext_resource type="Texture2D" uid="uid://coyah44acds44" path="res://image/Restart.png" id="5_w0gib"]
+[ext_resource type="Script" path="res://script/Restart.gd" id="5_jgga2"]
 [ext_resource type="Script" path="res://script/ShowHelp.gd" id="7_wnklu"]
-[ext_resource type="Texture2D" uid="uid://dhrt05cuctqke" path="res://image/Cross.png" id="10_b70x3"]
-[ext_resource type="Script" path="res://script/Restart.gd" id="10_jiatf"]
 [ext_resource type="Script" path="res://script/Keys.gd" id="10_myj4i"]
-[ext_resource type="Texture2D" uid="uid://clf0143icg626" path="res://image/Frame.png" id="11_fbk0g"]
+[ext_resource type="Texture2D" uid="uid://dhrt05cuctqke" path="res://image/Cross.png" id="10_sriyh"]
+[ext_resource type="Texture2D" uid="uid://clf0143icg626" path="res://image/Frame.png" id="11_814ch"]
 [ext_resource type="Script" path="res://script/Joysticks.gd" id="11_u8vrn"]
 [ext_resource type="PackedScene" uid="uid://rq1h0g5qbr6l" path="res://scene/DeepSpace.tscn" id="14_fx6kr"]
 
 [sub_resource type="CameraTexture" id="CameraTexture_p1oyg"]
 
 [node name="DeepSpaceImmersion" type="Node3D"]
-script = ExtResource( "1_fp0y2" )
+script = ExtResource("1_fp0y2")
 
-[node name="DeepSpace" parent="." instance=ExtResource( "14_fx6kr" )]
+[node name="DeepSpace" parent="." instance=ExtResource("14_fx6kr")]
 
 [node name="Tracker" type="Node" parent="."]
-script = ExtResource( "2_02a8b" )
+script = ExtResource("2_02a8b")
 
 [node name="HeadUpDisplay" type="CanvasLayer" parent="."]
-script = ExtResource( "1_446rp" )
+script = ExtResource("1_446rp")
 
 [node name="Restart" type="Button" parent="."]
 offset_left = 16.0
@@ -36,23 +35,27 @@ offset_right = 117.0
 offset_bottom = 54.0
 text = "Restart
 "
-icon = ExtResource( "5_w0gib" )
-script = ExtResource( "10_jiatf" )
+script = ExtResource("5_jgga2")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 
 [node name="Help" type="PanelContainer" parent="CenterContainer"]
 visible = false
-offset_left = 512.0
-offset_top = 300.0
-offset_right = 512.0
-offset_bottom = 300.0
-script = ExtResource( "3_obwnf" )
+layout_mode = 2
+offset_left = 640.0
+offset_top = 20.0
+offset_right = 640.0
+offset_bottom = 700.0
+script = ExtResource("3_obwnf")
 
 [node name="HelpText" type="RichTextLabel" parent="CenterContainer/Help"]
+layout_mode = 2
 offset_left = 7.0
 offset_top = 7.0
 offset_right = 1273.0
@@ -86,50 +89,59 @@ fit_content_height = true
 [node name="Settings" type="PanelContainer" parent="."]
 offset_right = 351.0
 offset_bottom = 649.0
-script = ExtResource( "3_8u80f" )
+script = ExtResource("3_8u80f")
 
 [node name="Columns" type="HBoxContainer" parent="Settings"]
+layout_mode = 2
 offset_right = 396.0
 offset_bottom = 649.0
 
 [node name="Column1" type="VBoxContainer" parent="Settings/Columns"]
+layout_mode = 2
 offset_bottom = 649.0
 
 [node name="CameraRectangle" type="TextureRect" parent="Settings/Columns/Column1"]
-texture = SubResource( "CameraTexture_p1oyg" )
-script = ExtResource( "4_6xbjc" )
+layout_mode = 2
+texture = SubResource("CameraTexture_p1oyg")
+script = ExtResource("4_6xbjc")
 
 [node name="MaskedRectangle" type="TextureRect" parent="Settings/Columns/Column1"]
+layout_mode = 2
 offset_top = 4.0
 offset_bottom = 4.0
 
 [node name="Cameras" type="ItemList" parent="Settings/Columns/Column1"]
+layout_mode = 2
 offset_top = 8.0
 offset_bottom = 16.0
 auto_height = true
 
 [node name="Column2" type="VBoxContainer" parent="Settings/Columns"]
+layout_mode = 2
 offset_left = 4.0
 offset_right = 396.0
 offset_bottom = 649.0
 
 [node name="ColorPicker" type="ColorPickerButton" parent="Settings/Columns/Column2"]
-minimum_size = Vector2(0, 32)
+layout_mode = 2
 offset_right = 392.0
-offset_bottom = 32.0
+offset_bottom = 8.0
 
 [node name="Tracking" type="HBoxContainer" parent="Settings/Columns/Column2"]
-offset_top = 36.0
+layout_mode = 2
+offset_top = 12.0
 offset_right = 392.0
-offset_bottom = 90.0
+offset_bottom = 66.0
 
 [node name="Keys" type="CheckBox" parent="Settings/Columns/Column2/Tracking"]
+layout_mode = 2
 offset_right = 64.0
 offset_bottom = 54.0
 text = "Keys"
-script = ExtResource( "10_myj4i" )
+script = ExtResource("10_myj4i")
 
 [node name="HsvTrack" type="CheckBox" parent="Settings/Columns/Column2/Tracking"]
+layout_mode = 2
 offset_left = 68.0
 offset_right = 139.0
 offset_bottom = 54.0
@@ -137,6 +149,7 @@ text = "HSV
 Track"
 
 [node name="HsvMask" type="CheckBox" parent="Settings/Columns/Column2/Tracking"]
+layout_mode = 2
 offset_left = 143.0
 offset_right = 212.0
 offset_bottom = 54.0
@@ -145,6 +158,7 @@ Mask
 "
 
 [node name="MarkerTrack" type="CheckBox" parent="Settings/Columns/Column2/Tracking"]
+layout_mode = 2
 offset_left = 216.0
 offset_right = 301.0
 offset_bottom = 54.0
@@ -152,23 +166,27 @@ text = "Marker
 Track"
 
 [node name="Joystick" type="CheckBox" parent="Settings/Columns/Column2/Tracking"]
+layout_mode = 2
 offset_left = 305.0
 offset_right = 392.0
 offset_bottom = 54.0
 text = "Joystick"
 
 [node name="Threshold" type="GridContainer" parent="Settings/Columns/Column2"]
-offset_top = 94.0
+layout_mode = 2
+offset_top = 70.0
 offset_right = 392.0
-offset_bottom = 180.0
+offset_bottom = 156.0
 columns = 2
 
 [node name="H" type="Label" parent="Settings/Columns/Column2/Threshold"]
+layout_mode = 2
 offset_right = 17.0
 offset_bottom = 26.0
 text = "H:"
 
 [node name="Hue" type="HSlider" parent="Settings/Columns/Column2/Threshold"]
+layout_mode = 2
 offset_left = 21.0
 offset_right = 392.0
 offset_bottom = 16.0
@@ -178,12 +196,14 @@ step = 0.0
 value = 0.1
 
 [node name="S" type="Label" parent="Settings/Columns/Column2/Threshold"]
+layout_mode = 2
 offset_top = 30.0
 offset_right = 17.0
 offset_bottom = 56.0
 text = "S:"
 
 [node name="Saturation" type="HSlider" parent="Settings/Columns/Column2/Threshold"]
+layout_mode = 2
 offset_left = 21.0
 offset_top = 30.0
 offset_right = 392.0
@@ -194,12 +214,14 @@ step = 0.0
 value = 0.1
 
 [node name="V" type="Label" parent="Settings/Columns/Column2/Threshold"]
+layout_mode = 2
 offset_top = 60.0
 offset_right = 17.0
 offset_bottom = 86.0
 text = "V:"
 
 [node name="Value" type="HSlider" parent="Settings/Columns/Column2/Threshold"]
+layout_mode = 2
 offset_left = 21.0
 offset_top = 60.0
 offset_right = 392.0
@@ -210,57 +232,67 @@ step = 0.0
 value = 0.1
 
 [node name="Joystick" type="HBoxContainer" parent="Settings/Columns/Column2"]
-offset_top = 184.0
+layout_mode = 2
+offset_top = 160.0
 offset_right = 392.0
-offset_bottom = 215.0
+offset_bottom = 191.0
 
 [node name="Label" type="Label" parent="Settings/Columns/Column2/Joystick"]
+layout_mode = 2
 offset_top = 2.0
 offset_right = 88.0
 offset_bottom = 28.0
 text = "Joystick on:"
 
 [node name="Left" type="CheckBox" parent="Settings/Columns/Column2/Joystick"]
+layout_mode = 2
 offset_left = 92.0
 offset_right = 150.0
 offset_bottom = 31.0
 text = "Left"
 
 [node name="Right" type="CheckBox" parent="Settings/Columns/Column2/Joystick"]
+layout_mode = 2
 offset_left = 154.0
 offset_right = 223.0
 offset_bottom = 31.0
 text = "Right"
 
 [node name="Joysticks" type="ItemList" parent="Settings/Columns/Column2"]
-offset_top = 219.0
+layout_mode = 2
+offset_top = 195.0
 offset_right = 392.0
-offset_bottom = 227.0
+offset_bottom = 203.0
 auto_height = true
-script = ExtResource( "11_u8vrn" )
+script = ExtResource("11_u8vrn")
 
 [node name="Cross" type="Sprite2D" parent="Settings"]
-texture = ExtResource( "10_b70x3" )
+texture = ExtResource("10_sriyh")
 
 [node name="Frame" type="Sprite2D" parent="Settings"]
-texture = ExtResource( "11_fbk0g" )
+texture = ExtResource("11_814ch")
 
 [node name="Buttons" type="HBoxContainer" parent="."]
+anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -40.0
+offset_left = -198.0
 offset_bottom = 40.0
 grow_horizontal = 0
+size_flags_horizontal = 8
+size_flags_vertical = 0
 
-[node name="ShowSettings" type="CheckButton" parent="Buttons"]
+[node name="ButtonsShowSettings" type="CheckButton" parent="Buttons"]
+layout_mode = 2
 offset_right = 110.0
 offset_bottom = 40.0
 text = "Settings"
-script = ExtResource( "5_3c45w" )
+script = ExtResource("5_3c45w")
 
-[node name="ShowHelp" type="CheckButton" parent="Buttons"]
+[node name="Buttons@ShowHelp" type="CheckButton" parent="Buttons"]
+layout_mode = 2
 offset_left = 114.0
 offset_right = 198.0
 offset_bottom = 40.0
 text = "Help"
-script = ExtResource( "7_wnklu" )
+script = ExtResource("7_wnklu")

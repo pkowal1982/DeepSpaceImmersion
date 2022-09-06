@@ -20,7 +20,7 @@ func _ready() -> void:
 	Global.frame_changed.connect(on_new_frame)
 
 
-func _thread_function(_unused) -> void:
+func _thread_function() -> void:
 	while true:
 		semaphore.wait()
 		mutex.lock()
@@ -53,8 +53,7 @@ func track_image() -> void:
 			previous_position = marker_tracker.track(image, previous_position)
 			v = previous_position
 	if not v.z < 0:
-		Global.set_tracking_position(2.0 * Vector2(v.x, v.y) / image.get_size() - Vector2.ONE)
-	pass
+		Global.set_tracking_position(2.0 * Vector2(v.x, v.y) / Vector2(image.get_size()) - Vector2.ONE)
 
 
 func _exit_tree() -> void:

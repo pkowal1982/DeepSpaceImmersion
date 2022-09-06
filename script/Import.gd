@@ -60,7 +60,7 @@ func add_rigid_bodies(parent: Node3D) -> void:
 
 
 func add_rigid_body(node: Node3D) -> void:
-	var rigid_body := RigidDynamicBody3D.new()
+	var rigid_body := RigidBody3D.new()
 	var node_name := str(node.name)
 	var name := node_name.substr(0, node_name.rfind("-Rigid"))
 	rigid_body.transform = node.transform

@@ -23,8 +23,8 @@ func _input(event) -> void:
 
 
 func _process(_delta: float) -> void:
-	var vertical_angle := VERTICAL_ANGLE - deg2rad(Global.camera.fov) * 0.5
-	var horizontal_fov := atan(tan(deg2rad(Global.camera.fov / 2.0)) * aspect) * 2.0
+	var vertical_angle := VERTICAL_ANGLE - deg_to_rad(Global.camera.fov) * 0.5
+	var horizontal_fov := atan(tan(deg_to_rad(Global.camera.fov / 2.0)) * aspect) * 2.0
 	var horizontal_angle := HORIZONTAL_ANGLE - horizontal_fov * 0.5
 
 	transform = Transform3D.IDENTITY
