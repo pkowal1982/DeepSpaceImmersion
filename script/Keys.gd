@@ -11,7 +11,7 @@ var vertical_speed := 0.0
 
 
 func _ready():
-	toggled.connect(on_toggled)
+	var _ignore = toggled.connect(on_toggled)
 
 
 func _process(delta: float) -> void:

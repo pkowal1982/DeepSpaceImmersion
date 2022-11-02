@@ -15,9 +15,9 @@ func _ready() -> void:
 	marker = marker_texture.get_image()
 	marker.convert(Image.FORMAT_L8)
 
-	thread.start(_thread_function)
+	var _ignore = thread.start(_thread_function)
 	
-	Global.frame_changed.connect(on_new_frame)
+	_ignore = Global.frame_changed.connect(on_new_frame)
 
 
 func _thread_function() -> void:
@@ -43,7 +43,7 @@ func track_image() -> void:
 	var v := Vector3(-1, -1, -1)
 	match Global.tracking_mode:
 		Global.HSV_MASK:
-			var masked_image = Image.new()
+			var masked_image = Image.create(image.get_width(), image.get_height(), false, Image.FORMAT_L8)
 			v = hsv_tracker.track(image, Global.tracking_color, Global.tracking_threshold, masked_image)
 			Global.set_masked_image(masked_image)
 		Global.HSV_TRACK:

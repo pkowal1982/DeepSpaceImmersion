@@ -16,7 +16,7 @@ func _ready() -> void:
 	rng.randomize()
 	Satellite = load("res://gltf/Satellite.gltf")
 	SatelliteScript = load("res://script/Satellite.gd")
-	Global.game_over.connect(on_game_over)
+	var _ignore = Global.game_over.connect(on_game_over)
 
 
 func _process(delta) -> void:

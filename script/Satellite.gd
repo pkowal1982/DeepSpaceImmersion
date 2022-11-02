@@ -8,7 +8,7 @@ func _ready() -> void:
 	SatelliteJunk = load("res://gltf/SatelliteJunk.gltf")
 	super._ready()
 	SatelliteJunk = load("res://gltf/SatelliteJunk.gltf")
-	Global.game_over.connect(on_game_over)
+	var _ignore = Global.game_over.connect(on_game_over)
 	Junk = SatelliteJunk
 
 

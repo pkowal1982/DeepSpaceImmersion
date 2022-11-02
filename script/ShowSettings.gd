@@ -2,7 +2,7 @@ extends CheckButton
 
 
 func _ready() -> void:
-	toggled.connect(set_settings_visible)
+	var _ignore = toggled.connect(set_settings_visible)
 	Global.settings.visible = false
 
 

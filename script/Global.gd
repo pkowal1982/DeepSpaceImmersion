@@ -38,11 +38,11 @@ func set_tracking_position(v: Vector2) -> void:
 	var clipped := v.clamp(MIN_POSITION, MAX_POSITION)
 	if tracking_position.distance_to(clipped) > DISTANCE:
 		tracking_position = clipped
-		emit_signal("tracking_position_updated", tracking_position)
+		var _ignore = emit_signal("tracking_position_updated", tracking_position)
 
 
 func set_masked_image(masked_image: Image) -> void:
-	emit_signal("masked_image_updated", masked_image)
+	var _ignore = emit_signal("masked_image_updated", masked_image)
 
 
 func set_tracking_mode(mode: int) -> void:
@@ -56,15 +56,15 @@ func restart() -> void:
 
 
 func emit_game_over() -> void:
-	emit_signal("game_over")
+	var _ignore = emit_signal("game_over")
 
 
 func emit_show_help(visible: bool) -> void:
-	emit_signal("show_help", visible)
+	var _ignore = emit_signal("show_help", visible)
 
 
 func emit_frame_changed() -> void:
-	emit_signal("frame_changed")
+	var _ignore = emit_signal("frame_changed")
 
 
 func on_sphere(rng: RandomNumberGenerator, radius: float = 1.0) -> Vector3:

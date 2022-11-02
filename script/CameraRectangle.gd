@@ -10,4 +10,4 @@ func _ready() -> void:
 func _gui_input(event) -> void:
 	if event is InputEventMouseButton and event.is_pressed:
 		var example: Color = get_texture().get_image().get_pixelv(event.position)
-		emit_signal("color_selected", example)
+		var _ignore = emit_signal("color_selected", example)

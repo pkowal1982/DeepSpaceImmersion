@@ -4,7 +4,7 @@ var cameras: ItemList
 var camera_rectangle: TextureRect
 var masked_rectangle: TextureRect
 var camera_texture: CameraTexture
-var color_picker: ColorPicker
+var color_picker_button: ColorPickerButton
 var keys: CheckBox
 var hsv_track: CheckBox
 var hsv_mask: CheckBox
@@ -31,31 +31,31 @@ func _ready() -> void:
 	marker_track.set_button_group(button_group)
 	joystick.set_button_group(button_group)
 	keys.set_pressed(true)
-	keys.pressed.connect(on_tracking_mode_changed.bind(Global.KEYS))
-	hsv_track.pressed.connect(on_tracking_mode_changed.bind(Global.HSV_TRACK))
-	hsv_mask.pressed.connect(on_tracking_mode_changed.bind(Global.HSV_MASK))
-	marker_track.pressed.connect(on_tracking_mode_changed.bind(Global.MARKER_TRACK))
-	joystick.pressed.connect(on_tracking_mode_changed.bind(Global.JOYSTICK))
+	var _ignore = keys.pressed.connect(on_tracking_mode_changed.bind(Global.KEYS))
+	_ignore = hsv_track.pressed.connect(on_tracking_mode_changed.bind(Global.HSV_TRACK))
+	_ignore = hsv_mask.pressed.connect(on_tracking_mode_changed.bind(Global.HSV_MASK))
+	_ignore = marker_track.pressed.connect(on_tracking_mode_changed.bind(Global.MARKER_TRACK))
+	_ignore = joystick.pressed.connect(on_tracking_mode_changed.bind(Global.JOYSTICK))
 	var left_right_button_group := ButtonGroup.new()
 	left.set_button_group(left_right_button_group)
 	right.set_button_group(left_right_button_group)
 	left.button_pressed = true
 
-	hue.value_changed.connect(on_threshold_changed)
-	saturation.value_changed.connect(on_threshold_changed)
-	value.value_changed.connect(on_threshold_changed)
+	_ignore = hue.value_changed.connect(on_threshold_changed)
+	_ignore = saturation.value_changed.connect(on_threshold_changed)
+	_ignore = value.value_changed.connect(on_threshold_changed)
 
-	color_picker.color_changed.connect(on_color_changed)
-	camera_rectangle.color_selected.connect(on_color_selected)
+	_ignore = color_picker_button.color_changed.connect(on_color_changed)
+	_ignore = camera_rectangle.color_selected.connect(on_color_selected)
 	camera_texture = camera_rectangle.get_texture()
 
-	cameras.item_selected.connect(change_feed)
-	CameraServer.camera_feed_added.connect(update_cameras)
-	CameraServer.camera_feed_removed.connect(update_cameras)
+	_ignore = cameras.item_selected.connect(change_feed)
+	_ignore = CameraServer.camera_feed_added.connect(update_cameras)
+	_ignore = CameraServer.camera_feed_removed.connect(update_cameras)
 	update_cameras(-1)
 	
-	Global.tracking_position_updated.connect(on_tracking_position_updated)
-	Global.masked_image_updated.connect(on_masked_image_updated)
+	_ignore = Global.tracking_position_updated.connect(on_tracking_position_updated)
+	_ignore = Global.masked_image_updated.connect(on_masked_image_updated)
 	on_tracking_mode_changed(Global.KEYS)
 
 
@@ -73,7 +73,7 @@ func assign_controls_to_variables() -> void:
 	hue = $Columns/Column2/Threshold/Hue
 	saturation = $Columns/Column2/Threshold/Saturation
 	value = $Columns/Column2/Threshold/Value
-	color_picker = $Columns/Column2/ColorPicker.get_picker()
+	color_picker_button = $Columns/Column2/ColorPicker
 
 
 func update_cameras(_unused: int) -> void:
@@ -81,7 +81,7 @@ func update_cameras(_unused: int) -> void:
 	if CameraServer.get_feed_count() > 0:
 		for index in range(0, CameraServer.get_feed_count()):
 			var camera_feed: CameraFeed = CameraServer.get_feed(index)
-			cameras.add_item(camera_feed.get_name())
+			var _ignore = cameras.add_item(camera_feed.get_name())
 		change_feed(0)
 
 
@@ -92,14 +92,15 @@ func change_feed(index: int) -> void:
 	selected_camera_feed = CameraServer.get_feed(index)
 	set_format(selected_camera_feed)
 	selected_camera_feed.set_active(true)
-	selected_camera_feed.frame_changed.connect(Global.emit_frame_changed)
+	var _ignore = selected_camera_feed.frame_changed.connect(Global.emit_frame_changed)
 	camera_texture.set_camera_feed_id(selected_camera_feed.get_id())
 
 
 func set_format(camera_feed: CameraFeed) -> void:
 	for frame_denominator in [60, 30, 1]:
-		for width in [320, 240]:
-			for format in ["YUYV", "MJPG", "JPEG"]:
+		for width in [320, 640]:
+			# !!! if not marker tracking than do not try yuyv or convert to rgb?
+			for format in ["YUYV", "MJPG", "JPEG"] if Global.tracking_mode == Global.MARKER_TRACK else ["MJPG", "JPEG", "YUYV"]:
 				var d := {"frame_denominator": frame_denominator, "width": width, "format": format}
 				if set_format_with_parameters(camera_feed, d):
 					return
@@ -110,14 +111,14 @@ func set_format_with_parameters(camera_feed: CameraFeed, d: Dictionary) -> bool:
 	for index in range(0, formats.size()):
 		var format: Dictionary = formats[index]
 		if d["width"] == format["width"] and d["frame_denominator"] == format["frame_denominator"] and d["format"] in format["format"]:
-			camera_feed.set_format(index, {"output": "separate"} if marker_track.button_pressed else {})
+			var _ignore = camera_feed.set_format(index, {"output": "separate"} if marker_track.button_pressed else {})
+			camera_rectangle.custom_minimum_size = Vector2(format["width"], format["height"])
 			return true
 	return false
 
 
 func on_masked_image_updated(masked_image) -> void:
-	var masked_texture: ImageTexture = ImageTexture.new()
-	masked_texture.create_from_image(masked_image)
+	var masked_texture := ImageTexture.create_from_image(masked_image)
 	masked_rectangle.set_texture(masked_texture)
 
 
@@ -126,8 +127,9 @@ func on_color_changed(color: Color) -> void:
 
 
 func on_color_selected(example: Color) -> void:
-	color_picker.color = example
+	color_picker_button.color = example
 	Global.tracking_color = example
+	# !!! not changing the mode to rgb
 	Global.set_tracking_mode(Global.HSV_MASK)
 	hsv_mask.set_pressed(true)
 

@@ -7,7 +7,7 @@ var ids := []
 func _ready() -> void:
 	for device in Input.get_connected_joypads():
 		on_joy_connection_changed(device)
-	Input.joy_connection_changed.connect(self.on_joy_connection_changed)
+	var _ignore = Input.joy_connection_changed.connect(self.on_joy_connection_changed)
 	if item_count > 0:
 		selected = 0
 
@@ -22,7 +22,7 @@ func _process(_delta: float) -> void:
 
 func on_joy_connection_changed(device: int, connected = true) -> void:
 	if connected:
-		add_item(Input.get_joy_name(device))
+		var _ignore = add_item(Input.get_joy_name(device))
 		ids.append(device)
 	else:
 		var index := ids.find(device)

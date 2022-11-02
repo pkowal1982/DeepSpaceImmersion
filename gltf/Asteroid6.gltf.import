@@ -15,6 +15,7 @@ dest_files=["res://.godot/imported/Asteroid6.gltf-5583588bae344846bce11ab5c4352b
 
 nodes/root_type="StaticBody3D"
 nodes/root_name="Asteroid6"
+nodes/apply_root_scale=true
 nodes/root_scale=1.0
 meshes/ensure_tangents=true
 meshes/generate_lods=true

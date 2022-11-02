@@ -2,7 +2,7 @@ extends Node3D
 
 
 func _ready() -> void:
-	Global.game_over.connect(on_game_over)
+	var _ignore = Global.game_over.connect(on_game_over)
 
 
 func on_game_over() -> void:

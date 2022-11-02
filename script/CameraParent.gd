@@ -9,7 +9,7 @@ var aspect: float
 
 
 func _ready() -> void:
-	get_viewport().size_changed.connect(on_size_changed)
+	var _ignore = get_viewport().size_changed.connect(on_size_changed)
 	on_size_changed()
 
 

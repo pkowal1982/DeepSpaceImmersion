@@ -17,7 +17,7 @@ func _ready() -> void:
 	rng.randomize()
 	Rocket = load("res://gltf/Rocket.gltf")
 	RocketScript = load("res://script/Rocket.gd")
-	Global.game_over.connect(on_game_over)
+	var _ignore = Global.game_over.connect(on_game_over)
 
 
 func _process(delta) -> void:

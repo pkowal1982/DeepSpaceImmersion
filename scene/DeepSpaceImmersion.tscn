@@ -11,7 +11,7 @@
 [ext_resource type="Script" path="res://script/ShowHelp.gd" id="7_wnklu"]
 [ext_resource type="Script" path="res://script/Keys.gd" id="10_myj4i"]
 [ext_resource type="Texture2D" uid="uid://dhrt05cuctqke" path="res://image/Cross.png" id="10_sriyh"]
-[ext_resource type="Texture2D" uid="uid://clf0143icg626" path="res://image/Frame.png" id="11_814ch"]
+[ext_resource type="Texture2D" uid="uid://dyng0xjungvdl" path="res://image/Frame.png" id="11_814ch"]
 [ext_resource type="Script" path="res://script/Joysticks.gd" id="11_u8vrn"]
 [ext_resource type="PackedScene" uid="uid://rq1h0g5qbr6l" path="res://scene/DeepSpace.tscn" id="14_fx6kr"]
 
@@ -100,21 +100,23 @@ offset_bottom = 649.0
 layout_mode = 2
 offset_bottom = 649.0
 
+[node name="Cameras" type="ItemList" parent="Settings/Columns/Column1"]
+layout_mode = 2
+offset_bottom = 8.0
+auto_height = true
+
 [node name="CameraRectangle" type="TextureRect" parent="Settings/Columns/Column1"]
 layout_mode = 2
+offset_top = 12.0
+offset_bottom = 12.0
 texture = SubResource("CameraTexture_p1oyg")
 script = ExtResource("4_6xbjc")
 
 [node name="MaskedRectangle" type="TextureRect" parent="Settings/Columns/Column1"]
 layout_mode = 2
-offset_top = 4.0
-offset_bottom = 4.0
-
-[node name="Cameras" type="ItemList" parent="Settings/Columns/Column1"]
-layout_mode = 2
-offset_top = 8.0
+offset_top = 16.0
 offset_bottom = 16.0
-auto_height = true
+stretch_mode = 4
 
 [node name="Column2" type="VBoxContainer" parent="Settings/Columns"]
 layout_mode = 2
@@ -123,15 +125,16 @@ offset_right = 396.0
 offset_bottom = 649.0
 
 [node name="ColorPicker" type="ColorPickerButton" parent="Settings/Columns/Column2"]
+custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 offset_right = 392.0
-offset_bottom = 8.0
+offset_bottom = 64.0
 
 [node name="Tracking" type="HBoxContainer" parent="Settings/Columns/Column2"]
 layout_mode = 2
-offset_top = 12.0
+offset_top = 68.0
 offset_right = 392.0
-offset_bottom = 66.0
+offset_bottom = 122.0
 
 [node name="Keys" type="CheckBox" parent="Settings/Columns/Column2/Tracking"]
 layout_mode = 2
@@ -174,9 +177,9 @@ text = "Joystick"
 
 [node name="Threshold" type="GridContainer" parent="Settings/Columns/Column2"]
 layout_mode = 2
-offset_top = 70.0
+offset_top = 126.0
 offset_right = 392.0
-offset_bottom = 156.0
+offset_bottom = 212.0
 columns = 2
 
 [node name="H" type="Label" parent="Settings/Columns/Column2/Threshold"]
@@ -233,9 +236,9 @@ value = 0.1
 
 [node name="Joystick" type="HBoxContainer" parent="Settings/Columns/Column2"]
 layout_mode = 2
-offset_top = 160.0
+offset_top = 216.0
 offset_right = 392.0
-offset_bottom = 191.0
+offset_bottom = 247.0
 
 [node name="Label" type="Label" parent="Settings/Columns/Column2/Joystick"]
 layout_mode = 2
@@ -260,9 +263,9 @@ text = "Right"
 
 [node name="Joysticks" type="ItemList" parent="Settings/Columns/Column2"]
 layout_mode = 2
-offset_top = 195.0
+offset_top = 251.0
 offset_right = 392.0
-offset_bottom = 203.0
+offset_bottom = 259.0
 auto_height = true
 script = ExtResource("11_u8vrn")
 

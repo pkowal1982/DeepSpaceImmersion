@@ -15,6 +15,7 @@ dest_files=["res://.godot/imported/Satellite.gltf-5880a29eab46cd2468b958c30c8a26
 
 nodes/root_type="CharacterBody3D"
 nodes/root_name="Satellite"
+nodes/apply_root_scale=true
 nodes/root_scale=1.0
 meshes/ensure_tangents=true
 meshes/generate_lods=true

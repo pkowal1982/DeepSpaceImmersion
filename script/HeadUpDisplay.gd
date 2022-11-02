@@ -11,7 +11,7 @@ func _ready() -> void:
 	cross_hair = load("res://image/CrossHair.png")
 	cross_hair_zoomed = load("res://image/CrossHairZoomed.png")
 	zoom(false)
-	Global.tracking_position_updated.connect(on_tracking_position_updated)
+	var _ignore = Global.tracking_position_updated.connect(on_tracking_position_updated)
 
 
 func on_tracking_position_updated(_tracking_position: Vector2) -> void:

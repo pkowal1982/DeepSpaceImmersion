@@ -22,7 +22,7 @@ func _ready() -> void:
 	add_shield()
 	scale = Vector3.ONE * 0.01
 	var tween = create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
-	tween.tween_property(self, "scale", Vector3.ONE, 1.0)
+	var _ignore = tween.tween_property(self, "scale", Vector3.ONE, 1.0)
 
 
 func add_shield() -> void:
@@ -70,7 +70,7 @@ func remove() -> void:
 	if not is_queued_for_deletion():
 		queue_free()
 		shield_status.queue_free()
-		emit_signal("died")
+		var _ignore = emit_signal("died")
 
 
 func explode() -> void:
