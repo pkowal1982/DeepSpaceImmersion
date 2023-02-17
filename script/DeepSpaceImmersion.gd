@@ -1,11 +1,9 @@
 extends Node3D
 
-# TODO change to const/preload after fixing #56343
-var DeepSpace: PackedScene
+const DeepSpace: PackedScene = preload("res://scene/DeepSpace.tscn")
 
 
 func _ready() -> void:
-	DeepSpace = load("res://scene/DeepSpace.tscn")
 	Global.deep_space_immersion = self
 
 

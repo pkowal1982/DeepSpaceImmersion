@@ -32,7 +32,7 @@ func _thread_function() -> void:
 
 
 func on_new_frame() -> void:
-	if Global.tracking_mode == Global.KEYS:
+	if Global.tracking_mode == Global.Mode.KEYS:
 		return
 	semaphore.post()
 
@@ -42,13 +42,13 @@ func track_image() -> void:
 	var image: Image = texture.get_image()
 	var v := Vector3(-1, -1, -1)
 	match Global.tracking_mode:
-		Global.HSV_MASK:
+		Global.Mode.HSV_MASK:
 			var masked_image = Image.create(image.get_width(), image.get_height(), false, Image.FORMAT_L8)
 			v = hsv_tracker.track(image, Global.tracking_color, Global.tracking_threshold, masked_image)
 			Global.set_masked_image(masked_image)
-		Global.HSV_TRACK:
+		Global.Mode.HSV_TRACK:
 			v = hsv_tracker.track(image, Global.tracking_color, Global.tracking_threshold)
-		Global.MARKER_TRACK:
+		Global.Mode.MARKER_TRACK:
 			image.convert(Image.FORMAT_L8)
 			previous_position = marker_tracker.track(image, previous_position)
 			v = previous_position

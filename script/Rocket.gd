@@ -1,15 +1,13 @@
 extends "res://script/Target.gd"
 
+const RocketJunk: PackedScene = preload("res://gltf/RocketJunk.gltf")
 const DEEP_SPACE = 30.0
-# TODO change to const/preload after fixing #56343
-var RocketJunk: PackedScene
 
 var tween: Tween
 
 
 func _ready() -> void:
 	super._ready()
-	RocketJunk = load("res://gltf/RocketJunk.gltf")
 	var _ignore = Global.game_over.connect(on_game_over)
 	Junk = RocketJunk
 

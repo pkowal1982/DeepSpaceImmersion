@@ -13,7 +13,7 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	if Global.tracking_mode == Global.JOYSTICK and selected != -1:
+	if Global.tracking_mode == Global.Mode.JOYSTICK and selected != -1:
 		var left: bool = Global.settings.left.button_pressed
 		var horizontal := Input.get_joy_axis(selected, JOY_AXIS_LEFT_X if left else JOY_AXIS_RIGHT_X)
 		var vertical := Input.get_joy_axis(selected, JOY_AXIS_LEFT_Y if left else JOY_AXIS_RIGHT_Y)

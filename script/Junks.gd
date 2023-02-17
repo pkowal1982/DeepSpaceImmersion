@@ -1,14 +1,12 @@
 extends Node3D
 
-# TODO change to const/preload after fixing #56343
-var JunkScript: Script
+const JunkScript: Script = preload("res://script/Junk.gd")
 
 var rng := RandomNumberGenerator.new()
 var scores := {}
 var actual_hash := 0
 
 func _ready() -> void:
-	JunkScript = load("res://script/Junk.gd")
 	Global.junks = self
 	rng.randomize()
 

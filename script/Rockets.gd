@@ -1,22 +1,17 @@
 extends Node3D
 
+const Rocket: PackedScene = preload("res://gltf/Rocket.gltf")
+const RocketScript: Script = preload("res://script/Rocket.gd")
 const OUTER_SPACE := Vector3.RIGHT * 25
 const MAX_ROCKETS := 10
 
-# TODO change to const/preload after fixing #56343
-var Rocket: PackedScene
-var RocketScript: Script
 var rng := RandomNumberGenerator.new()
 var rocket_count := 0
 var time_to_launch := 1.0
 
 
 func _ready() -> void:
-	Rocket = load("res://gltf/Rocket.gltf")
-	RocketScript = load("res://script/Rocket.gd")
 	rng.randomize()
-	Rocket = load("res://gltf/Rocket.gltf")
-	RocketScript = load("res://script/Rocket.gd")
 	var _ignore = Global.game_over.connect(on_game_over)
 
 

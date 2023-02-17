@@ -1,18 +1,13 @@
 extends Node3D
 
-# TODO change to const/preload after fixing #56343
-var Blob: PackedScene
-var BlobScript: Script
+const Blob: PackedScene = preload("res://gltf/Blob.gltf")
+const BlobScript: Script = preload("res://script/Blob.gd")
 
 var rng := RandomNumberGenerator.new()
 
 
 func _ready() -> void:
-	Blob = load("res://gltf/Blob.gltf")
-	BlobScript = load("res://script/Blob.gd")
 	Global.blobs = self
-	Blob = load("res://gltf/Blob.gltf")
-	BlobScript = load("res://script/Blob.gd")
 	rng.randomize()
 
 

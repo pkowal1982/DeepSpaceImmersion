@@ -2,11 +2,10 @@ extends CharacterBody3D
 
 signal died()
 
+const ShieldStatus: PackedScene = preload("res://scene/ShieldStatus.tscn")
 const FULL_SHIELD := 3.0
 const FULL_REPAIR_TIME := 3.0
 
-# TODO change to const/preload after fixing #56343
-var ShieldStatus: PackedScene
 var Junk: PackedScene
 var shield := 3.0
 var time_to_die := 30.0
@@ -18,7 +17,6 @@ var immune := false
 
 
 func _ready() -> void:
-	ShieldStatus = load("res://scene/ShieldStatus.tscn")
 	add_shield()
 	scale = Vector3.ONE * 0.01
 	var tween = create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)

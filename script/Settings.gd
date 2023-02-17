@@ -31,11 +31,11 @@ func _ready() -> void:
 	marker_track.set_button_group(button_group)
 	joystick.set_button_group(button_group)
 	keys.set_pressed(true)
-	var _ignore = keys.pressed.connect(on_tracking_mode_changed.bind(Global.KEYS))
-	_ignore = hsv_track.pressed.connect(on_tracking_mode_changed.bind(Global.HSV_TRACK))
-	_ignore = hsv_mask.pressed.connect(on_tracking_mode_changed.bind(Global.HSV_MASK))
-	_ignore = marker_track.pressed.connect(on_tracking_mode_changed.bind(Global.MARKER_TRACK))
-	_ignore = joystick.pressed.connect(on_tracking_mode_changed.bind(Global.JOYSTICK))
+	var _ignore = keys.pressed.connect(on_tracking_mode_changed.bind(Global.Mode.KEYS))
+	_ignore = hsv_track.pressed.connect(on_tracking_mode_changed.bind(Global.Mode.HSV_TRACK))
+	_ignore = hsv_mask.pressed.connect(on_tracking_mode_changed.bind(Global.Mode.HSV_MASK))
+	_ignore = marker_track.pressed.connect(on_tracking_mode_changed.bind(Global.Mode.MARKER_TRACK))
+	_ignore = joystick.pressed.connect(on_tracking_mode_changed.bind(Global.Mode.JOYSTICK))
 	var left_right_button_group := ButtonGroup.new()
 	left.set_button_group(left_right_button_group)
 	right.set_button_group(left_right_button_group)
@@ -56,7 +56,7 @@ func _ready() -> void:
 	
 	_ignore = Global.tracking_position_updated.connect(on_tracking_position_updated)
 	_ignore = Global.masked_image_updated.connect(on_masked_image_updated)
-	on_tracking_mode_changed(Global.KEYS)
+	on_tracking_mode_changed(Global.Mode.KEYS)
 
 
 func assign_controls_to_variables() -> void:
@@ -100,7 +100,7 @@ func set_format(camera_feed: CameraFeed) -> void:
 	for frame_denominator in [60, 30, 1]:
 		for width in [320, 640]:
 			# !!! if not marker tracking than do not try yuyv or convert to rgb?
-			for format in ["YUYV", "MJPG", "JPEG"] if Global.tracking_mode == Global.MARKER_TRACK else ["MJPG", "JPEG", "YUYV"]:
+			for format in ["YUYV", "MJPG", "JPEG"] if Global.tracking_mode == Global.Mode.MARKER_TRACK else ["MJPG", "JPEG", "YUYV"]:
 				var d := {"frame_denominator": frame_denominator, "width": width, "format": format}
 				if set_format_with_parameters(camera_feed, d):
 					return
@@ -130,7 +130,7 @@ func on_color_selected(example: Color) -> void:
 	color_picker_button.color = example
 	Global.tracking_color = example
 	# !!! not changing the mode to rgb
-	Global.set_tracking_mode(Global.HSV_MASK)
+	Global.set_tracking_mode(Global.Mode.HSV_MASK)
 	hsv_mask.set_pressed(true)
 
 
@@ -140,8 +140,8 @@ func on_threshold_changed(_unused) -> void:
 
 func on_tracking_mode_changed(mode: int) -> void:
 	Global.set_tracking_mode(mode)
-	$Cross.visible = mode == Global.HSV_MASK or mode == Global.HSV_TRACK
-	$Frame.visible = mode == Global.MARKER_TRACK
+	$Cross.visible = mode == Global.Mode.HSV_MASK or mode == Global.Mode.HSV_TRACK
+	$Frame.visible = mode == Global.Mode.MARKER_TRACK
 	update_cameras(-1)
 
 

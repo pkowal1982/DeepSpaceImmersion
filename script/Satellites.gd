@@ -1,21 +1,16 @@
 extends Node3D
 
 const MAX_SATELLITES := 10
+const Satellite: PackedScene = preload("res://gltf/Satellite.gltf")
+const SatelliteScript: Script = preload("res://script/Satellite.gd")
 
-# TODO change to const/preload after fixing #56343
-var Satellite: PackedScene
-var SatelliteScript: Script
 var rng := RandomNumberGenerator.new()
 var satellite_count := 0
 var time_to_deploy := 1.0
 
 
 func _ready() -> void:
-	Satellite = load("res://gltf/Satellite.gltf")
-	SatelliteScript = load("res://script/Satellite.gd")
 	rng.randomize()
-	Satellite = load("res://gltf/Satellite.gltf")
-	SatelliteScript = load("res://script/Satellite.gd")
 	var _ignore = Global.game_over.connect(on_game_over)
 
 

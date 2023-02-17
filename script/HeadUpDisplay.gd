@@ -1,15 +1,13 @@
 extends CanvasLayer
 
-# TODO change to const/preload after fixing #56343
-var cross_hair: Texture2D
-var cross_hair_zoomed: Texture2D
+const CROSS_HAIR: Texture2D = preload("res://image/CrossHair.png")
+const CROSS_HAIR_ZOOMED: Texture2D = preload("res://image/CrossHairZoomed.png")
+
 var zoomed := true
 
 
 func _ready() -> void:
 	Global.hud = self
-	cross_hair = load("res://image/CrossHair.png")
-	cross_hair_zoomed = load("res://image/CrossHairZoomed.png")
 	zoom(false)
 	var _ignore = Global.tracking_position_updated.connect(on_tracking_position_updated)
 
@@ -28,6 +26,6 @@ func _input(event) -> void:
 func zoom(_zoomed = true) -> void:
 	if zoomed != _zoomed:
 		zoomed = _zoomed
-		var cursor: Texture2D = cross_hair_zoomed if zoomed else cross_hair
+		var cursor: Texture2D = CROSS_HAIR_ZOOMED if zoomed else CROSS_HAIR
 		Input.set_custom_mouse_cursor(cursor, Input.CURSOR_CROSS, cursor.get_size() / 2.0)
 		Input.set_default_cursor_shape(Input.CURSOR_CROSS)

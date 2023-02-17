@@ -6,7 +6,7 @@ signal game_over()
 signal show_help(visible)
 signal frame_changed()
 
-enum { KEYS, HSV_TRACK, HSV_MASK, MARKER_TRACK, JOYSTICK }
+enum Mode { KEYS, HSV_TRACK, HSV_MASK, MARKER_TRACK, JOYSTICK }
 
 const DISTANCE := 0.01
 const MIN_POSITION := Vector2(-1.0, -1.0)
@@ -16,7 +16,7 @@ var deep_space_immersion: Node3D
 var camera_rectangle: TextureRect
 var hud: Node
 var camera: Camera3D
-var tracking_mode := KEYS
+var tracking_mode := Mode.KEYS
 var tracking_position := Vector2()
 var tracking_image: Image
 var tracking_color := Color.BLACK
@@ -45,9 +45,9 @@ func set_masked_image(masked_image: Image) -> void:
 	var _ignore = emit_signal("masked_image_updated", masked_image)
 
 
-func set_tracking_mode(mode: int) -> void:
+func set_tracking_mode(mode: Mode) -> void:
 	tracking_mode = mode
-	if mode == KEYS:
+	if mode == Mode.KEYS:
 		set_tracking_position(Vector2())
 
 

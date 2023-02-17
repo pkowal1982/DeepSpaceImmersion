@@ -1,17 +1,21 @@
 extends Node3D
 
 const OUTER_SPACE := Vector3.RIGHT * 25
-
-# TODO change to const/preload after fixing #56343
-var ASTEROIDS: Array
+const ASTEROIDS := [
+	preload("res://gltf/Asteroid1.gltf"),
+	preload("res://gltf/Asteroid2.gltf"),
+	preload("res://gltf/Asteroid3.gltf"),
+	preload("res://gltf/Asteroid4.gltf"),
+	preload("res://gltf/Asteroid5.gltf"),
+	preload("res://gltf/Asteroid6.gltf"),
+	preload("res://gltf/Asteroid7.gltf")
+]
 
 var rng := RandomNumberGenerator.new()
 var asteroids = []
 var places = []
 
 func _ready() -> void:
-	for i in range(1, 8):
-		ASTEROIDS.append(load(str("res://gltf/Asteroid", i, ".gltf")))
 	rng.randomize()
 	for i in range(0, 100):
 		var place := inner_space()
