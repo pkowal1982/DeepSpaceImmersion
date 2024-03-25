@@ -17,7 +17,7 @@ func _ready() -> void:
 
 	var _ignore = thread.start(_thread_function)
 	
-	_ignore = Global.frame_changed.connect(on_new_frame)
+	Global.frame_changed.connect(on_new_frame)
 
 
 func _thread_function() -> void:

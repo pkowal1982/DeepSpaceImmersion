@@ -68,7 +68,7 @@ func remove() -> void:
 	if not is_queued_for_deletion():
 		queue_free()
 		shield_status.queue_free()
-		var _ignore = emit_signal("died")
+		died.emit()
 
 
 func explode() -> void:

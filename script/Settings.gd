@@ -88,11 +88,11 @@ func update_cameras(_unused: int) -> void:
 func change_feed(index: int) -> void:
 	if selected_camera_feed:
 		selected_camera_feed.set_active(false)
-		selected_camera_feed.frame_changed.disconnect(Global.emit_frame_changed)
+		selected_camera_feed.frame_changed.disconnect(Global.emit_frame_changed_deferred)
 	selected_camera_feed = CameraServer.get_feed(index)
 	set_format(selected_camera_feed)
 	selected_camera_feed.set_active(true)
-	var _ignore = selected_camera_feed.frame_changed.connect(Global.emit_frame_changed)
+	var _ignore = selected_camera_feed.frame_changed.connect(Global.emit_frame_changed_deferred)
 	camera_texture.set_camera_feed_id(selected_camera_feed.get_id())
 
 

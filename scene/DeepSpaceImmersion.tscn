@@ -1,32 +1,32 @@
 [gd_scene load_steps=16 format=3 uid="uid://y42ho5uudpws"]
 
-[ext_resource type="Script" path="res://script/HeadUpDisplay.gd" id="1_446rp"]
-[ext_resource type="Script" path="res://script/DeepSpaceImmersion.gd" id="1_fp0y2"]
-[ext_resource type="Script" path="res://script/Tracker.gd" id="2_02a8b"]
-[ext_resource type="Script" path="res://script/Settings.gd" id="3_8u80f"]
-[ext_resource type="Script" path="res://script/Help.gd" id="3_obwnf"]
-[ext_resource type="Script" path="res://script/CameraRectangle.gd" id="4_6xbjc"]
-[ext_resource type="Script" path="res://script/ShowSettings.gd" id="5_3c45w"]
-[ext_resource type="Script" path="res://script/Restart.gd" id="5_jgga2"]
-[ext_resource type="Script" path="res://script/ShowHelp.gd" id="7_wnklu"]
-[ext_resource type="Script" path="res://script/Keys.gd" id="10_myj4i"]
-[ext_resource type="Texture2D" uid="uid://dhrt05cuctqke" path="res://image/Cross.png" id="10_sriyh"]
-[ext_resource type="Texture2D" uid="uid://dyng0xjungvdl" path="res://image/Frame.png" id="11_814ch"]
-[ext_resource type="Script" path="res://script/Joysticks.gd" id="11_u8vrn"]
-[ext_resource type="PackedScene" uid="uid://rq1h0g5qbr6l" path="res://scene/DeepSpace.tscn" id="14_fx6kr"]
+[ext_resource type="Script" path="res://script/DeepSpaceImmersion.gd" id="1_h65ey"]
+[ext_resource type="PackedScene" uid="uid://rq1h0g5qbr6l" path="res://scene/DeepSpace.tscn" id="2_wrp78"]
+[ext_resource type="Script" path="res://script/Tracker.gd" id="3_rm0x1"]
+[ext_resource type="Script" path="res://script/HeadUpDisplay.gd" id="4_rbijo"]
+[ext_resource type="Script" path="res://script/Restart.gd" id="5_r0wvt"]
+[ext_resource type="Script" path="res://script/Help.gd" id="6_dxik6"]
+[ext_resource type="Script" path="res://script/Settings.gd" id="7_pvju8"]
+[ext_resource type="Script" path="res://script/CameraRectangle.gd" id="8_p57h5"]
+[ext_resource type="Script" path="res://script/Keys.gd" id="9_g2xrw"]
+[ext_resource type="Script" path="res://script/Joysticks.gd" id="10_jcdsd"]
+[ext_resource type="Texture2D" uid="uid://dhrt05cuctqke" path="res://image/Cross.png" id="11_fmpnd"]
+[ext_resource type="Texture2D" uid="uid://c65sv2b2ccm8u" path="res://image/Frame.png" id="12_vmm3u"]
+[ext_resource type="Script" path="res://script/ShowSettings.gd" id="13_w4q4p"]
+[ext_resource type="Script" path="res://script/ShowHelp.gd" id="14_bavsx"]
 
 [sub_resource type="CameraTexture" id="CameraTexture_p1oyg"]
 
 [node name="DeepSpaceImmersion" type="Node3D"]
-script = ExtResource("1_fp0y2")
+script = ExtResource("1_h65ey")
 
-[node name="DeepSpace" parent="." instance=ExtResource("14_fx6kr")]
+[node name="DeepSpace" parent="." instance=ExtResource("2_wrp78")]
 
 [node name="Tracker" type="Node" parent="."]
-script = ExtResource("2_02a8b")
+script = ExtResource("3_rm0x1")
 
 [node name="HeadUpDisplay" type="CanvasLayer" parent="."]
-script = ExtResource("1_446rp")
+script = ExtResource("4_rbijo")
 
 [node name="Restart" type="Button" parent="."]
 offset_left = 16.0
@@ -35,7 +35,7 @@ offset_right = 117.0
 offset_bottom = 54.0
 text = "Restart
 "
-script = ExtResource("5_jgga2")
+script = ExtResource("5_r0wvt")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchors_preset = 15
@@ -48,7 +48,7 @@ mouse_filter = 2
 [node name="Help" type="PanelContainer" parent="CenterContainer"]
 visible = false
 layout_mode = 2
-script = ExtResource("3_obwnf")
+script = ExtResource("6_dxik6")
 
 [node name="HelpText" type="RichTextLabel" parent="CenterContainer/Help"]
 layout_mode = 2
@@ -80,7 +80,7 @@ You can use color ping pong ball as marker, as it's rotation resistant.[/color][
 [node name="Settings" type="PanelContainer" parent="."]
 offset_right = 351.0
 offset_bottom = 649.0
-script = ExtResource("3_8u80f")
+script = ExtResource("7_pvju8")
 
 [node name="Columns" type="HBoxContainer" parent="Settings"]
 layout_mode = 2
@@ -95,7 +95,7 @@ auto_height = true
 [node name="CameraRectangle" type="TextureRect" parent="Settings/Columns/Column1"]
 layout_mode = 2
 texture = SubResource("CameraTexture_p1oyg")
-script = ExtResource("4_6xbjc")
+script = ExtResource("8_p57h5")
 
 [node name="MaskedRectangle" type="TextureRect" parent="Settings/Columns/Column1"]
 layout_mode = 2
@@ -114,7 +114,7 @@ layout_mode = 2
 [node name="Keys" type="CheckBox" parent="Settings/Columns/Column2/Tracking"]
 layout_mode = 2
 text = "Keys"
-script = ExtResource("10_myj4i")
+script = ExtResource("9_g2xrw")
 
 [node name="HsvTrack" type="CheckBox" parent="Settings/Columns/Column2/Tracking"]
 layout_mode = 2
@@ -191,13 +191,13 @@ text = "Right"
 [node name="Joysticks" type="ItemList" parent="Settings/Columns/Column2"]
 layout_mode = 2
 auto_height = true
-script = ExtResource("11_u8vrn")
+script = ExtResource("10_jcdsd")
 
 [node name="Cross" type="Sprite2D" parent="Settings"]
-texture = ExtResource("10_sriyh")
+texture = ExtResource("11_fmpnd")
 
 [node name="Frame" type="Sprite2D" parent="Settings"]
-texture = ExtResource("11_814ch")
+texture = ExtResource("12_vmm3u")
 
 [node name="Buttons" type="HBoxContainer" parent="."]
 anchors_preset = 1
@@ -212,9 +212,9 @@ size_flags_vertical = 0
 [node name="ButtonsShowSettings" type="CheckButton" parent="Buttons"]
 layout_mode = 2
 text = "Settings"
-script = ExtResource("5_3c45w")
+script = ExtResource("13_w4q4p")
 
 [node name="Buttons@ShowHelp" type="CheckButton" parent="Buttons"]
 layout_mode = 2
 text = "Help"
-script = ExtResource("7_wnklu")
+script = ExtResource("14_bavsx")
