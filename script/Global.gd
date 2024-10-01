@@ -41,8 +41,8 @@ func set_tracking_position(v: Vector2) -> void:
 		emit_tracking_position_updated.call_deferred(tracking_position)
 
 
-func emit_tracking_position_updated(tracking_position: Vector2) -> void:
-	tracking_position_updated.emit(tracking_position)
+func emit_tracking_position_updated(_tracking_position: Vector2) -> void:
+	tracking_position_updated.emit(_tracking_position)
 
 
 func set_masked_image(masked_image: Image) -> void:

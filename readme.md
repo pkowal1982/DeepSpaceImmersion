@@ -8,16 +8,16 @@ To achieve this goal it's tracking a DIY marker attached to your head, allowing 
 
 ## Testing
 
-You can download exported game for Ubuntu/Windows from [itch.io](https://pkowal1982.itch.io/deep-space-immersion).
+You can download exported game for Ubuntu/Windows from [itch.io](https://pkowal1982.itch.io/deep-space-immersion) but it's a little outdated.
 
 But if you know what your doing:
 
-1. Download branch of Godot incorporating [camera branch](https://github.com/pkowal1982/godot/tree/camera)
-and [tracking module](https://github.com/pkowal1982/godot/tree/tracker).  
-Compile it and run executable. Remember that it allows to use camera only on Linux.
+1. Download master branch of Godot (https://github.com/godotengine/godot/tree/master)
+compile it and run executable. Remember that it allows to use camera only on Linux.
+You can also use precompiled Godot 4.4 dev 3 version.
 
 2. Download [this project](https://github.com/pkowal1982/DeepSpaceImmersion/archive/refs/heads/master.zip)
-and open it with modified Godot Engine editor you've already downloaded and compiled in step 1.
+and open it with Godot Engine editor you've already downloaded and compiled in step 1.
 
 3. Get yourself a marker. It can be color sticky note, pin-pong ball or you can print
 black and white one from the [file provided.](https://github.com/pkowal1982/DeepSpaceImmersion/blob/master/image/markers.svg).

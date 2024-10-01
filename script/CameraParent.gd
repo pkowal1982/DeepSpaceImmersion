@@ -42,4 +42,3 @@ func set_tracking_position(relative: Vector2) -> void:
 func on_size_changed() -> void:
 	var viewport_size := get_viewport().get_visible_rect().size
 	aspect = viewport_size.x / viewport_size.y
-
