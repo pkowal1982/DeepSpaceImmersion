@@ -3,22 +3,22 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b6opemqo175kk"
-path="res://.godot/imported/Shield.svg-54a16994fb056887a942abcfb391da6d.ctex"
+path="res://.godot/imported/Shield.svg-b5b4018cbf143160af4ad39c6237a41a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Shield.svg"
-dest_files=["res://.godot/imported/Shield.svg-54a16994fb056887a942abcfb391da6d.ctex"]
+source_file="res://production/Shield.svg"
+dest_files=["res://.godot/imported/Shield.svg-b5b4018cbf143160af4ad39c6237a41a.ctex"]
 
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false
@@ -33,3 +33,5 @@ process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
 svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

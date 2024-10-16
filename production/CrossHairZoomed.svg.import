@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqx30sghgdsdi"
-path="res://.godot/imported/background.svg-0e1286cd1db8a4b2ed43fb666375b7c6.ctex"
+uid="uid://dx71ois06h1qf"
+path="res://.godot/imported/CrossHairZoomed.svg-0d417a332c4c2140120c13ced1991335.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://production/background.svg"
-dest_files=["res://.godot/imported/background.svg-0e1286cd1db8a4b2ed43fb666375b7c6.ctex"]
+source_file="res://production/CrossHairZoomed.svg"
+dest_files=["res://.godot/imported/CrossHairZoomed.svg-0d417a332c4c2140120c13ced1991335.ctex"]
 
 [params]
 

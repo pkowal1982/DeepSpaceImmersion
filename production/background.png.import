@@ -3,22 +3,22 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c0qb42om3kxmx"
-path="res://.godot/imported/background.png-98289422cd7d93003950872a7b97021f.ctex"
+path="res://.godot/imported/background.png-e3f4d15ab95f2d3e603ad8939f656767.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://background.png"
-dest_files=["res://.godot/imported/background.png-98289422cd7d93003950872a7b97021f.ctex"]
+source_file="res://production/background.png"
+dest_files=["res://.godot/imported/background.png-e3f4d15ab95f2d3e603ad8939f656767.ctex"]
 
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false

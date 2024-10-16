@@ -3,22 +3,22 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d180i3cdu73xe"
-path="res://.godot/imported/cover_background.jpg-137149df53e5264c2dc5f816fcae47e8.ctex"
+path="res://.godot/imported/cover_background.jpg-38ce8839aaba3c8cd9f6e1867e239712.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://cover_background.jpg"
-dest_files=["res://.godot/imported/cover_background.jpg-137149df53e5264c2dc5f816fcae47e8.ctex"]
+source_file="res://production/cover_background.jpg"
+dest_files=["res://.godot/imported/cover_background.jpg-38ce8839aaba3c8cd9f6e1867e239712.ctex"]
 
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false
